@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Perpustakaan Digital Crypto & Web3 — panduan airdrop, DeFi, NFT, trading, dan Web3 development dari nol sampai builder.">
+<meta name="keywords" content="crypto, web3, airdrop, defi, nft, trading, blockchain, indonesia">
+<meta property="og:title" content="ratonven — Perpustakaan Digital Crypto & Web3">
+<meta property="og:description" content="Dari nol sampai builder — edukasi crypto & Web3 lengkap dalam satu perpustakaan.">
+<title>ratonven — Perpustakaan Digital Crypto & Web3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080a0f;
+  --bg2: #0d1017;
+  --bg3: #131720;
+  --surface: rgba(255,255,255,0.04);
+  --surface2: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.1);
+  --text: #f0ede8;
+  --muted: rgba(240,237,232,0.45);
+  --muted2: rgba(240,237,232,0.25);
+  --gold: #c9a84c;
+  --gold2: #e8c97a;
+  --gold-dim: rgba(201,168,76,0.12);
+  --teal: #3dd6c8;
+  --teal-dim: rgba(61,214,200,0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.65;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* GRAIN TEXTURE */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+  opacity:0.6;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 48px;
+  background:rgba(8,10,15,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:var(--mono);
+  font-size:14px;
+  font-weight:700;
+  color:var(--gold);
+  letter-spacing:0.08em;
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  text-decoration:none;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.nav-tg{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--gold);
+  border:1px solid rgba(201,168,76,0.3);
+  padding:7px 16px;
+  border-radius:2px;
+  text-decoration:none;
+  letter-spacing:0.08em;
+  transition:all 0.2s;
+}
+.nav-tg:hover{background:var(--gold-dim)}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:140px 48px 80px;
+  overflow:hidden;
+}
+.hero-grid-lines{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-glow{
+  position:absolute;
+  top:-200px;left:-200px;
+  width:700px;height:700px;
+  background:radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--gold);
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.hero-tag::before{
+  content:'';
+  display:block;
+  width:24px;height:1px;
+  background:var(--gold);
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(42px, 6vw, 80px);
+  line-height:1.1;
+  color:var(--text);
+  max-width:820px;
+  margin-bottom:28px;
+  position:relative;
+}
+.hero-title em{
+  font-style:italic;
+  color:var(--gold2);
+}
+.hero-sub{
+  font-size:17px;
+  color:var(--muted);
+  max-width:560px;
+  margin-bottom:48px;
+  font-weight:300;
+  line-height:1.8;
+}
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:80px;
+}
+.btn-primary{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:0.1em;
+  color:var(--bg);
+  background:var(--gold);
+  padding:14px 28px;
+  border-radius:2px;
+  text-decoration:none;
+  transition:all 0.2s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:0.1em;
+  color:var(--text);
+  border:1px solid var(--border2);
+  padding:14px 28px;
+  border-radius:2px;
+  text-decoration:none;
+  transition:all 0.2s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+.hero-stats{
+  display:flex;
+  gap:48px;
+  flex-wrap:wrap;
+}
+.stat{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.stat-num{
+  font-family:var(--serif);
+  font-size:32px;
+  color:var(--gold2);
+  line-height:1;
+}
+.stat-label{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+}
+
+/* SEARCH */
+.search-section{
+  padding:0 48px 60px;
+  position:relative;
+}
+.search-wrap{
+  position:relative;
+  max-width:600px;
+}
+.search-icon{
+  position:absolute;
+  left:18px;top:50%;transform:translateY(-50%);
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:14px;
+  pointer-events:none;
+}
+#search-input{
+  width:100%;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:2px;
+  padding:16px 20px 16px 48px;
+  font-family:var(--sans);
+  font-size:15px;
+  color:var(--text);
+  outline:none;
+  transition:border-color 0.2s;
+}
+#search-input::placeholder{color:var(--muted2)}
+#search-input:focus{border-color:rgba(201,168,76,0.4)}
+.search-results{
+  display:none;
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;right:0;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:2px;
+  z-index:50;
+  max-height:320px;
+  overflow-y:auto;
+}
+.search-item{
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:background 0.15s;
+  text-decoration:none;
+  display:block;
+  color:inherit;
+}
+.search-item:hover{background:var(--surface2)}
+.search-item:last-child{border-bottom:none}
+.search-item-title{font-size:14px;color:var(--text);margin-bottom:3px}
+.search-item-meta{font-size:11px;color:var(--muted);font-family:var(--mono)}
+
+/* SECTION */
+.section{
+  padding:0 48px 100px;
+  position:relative;
+}
+.section-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:40px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+.section-tag{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:32px;
+  color:var(--text);
+}
+.section-title em{font-style:italic;color:var(--gold2)}
+
+/* BREADCRUMB */
+#breadcrumb{
+  display:none;
+  align-items:center;
+  gap:8px;
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:32px;
+  flex-wrap:wrap;
+}
+#breadcrumb.visible{display:flex}
+.bc-item{cursor:pointer;transition:color 0.2s}
+.bc-item:hover{color:var(--gold)}
+.bc-sep{color:var(--muted2)}
+.bc-current{color:var(--text)}
+
+/* RAK GRID */
+#rak-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:16px;
+}
+.rak-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:28px 24px;
+  cursor:pointer;
+  transition:all 0.25s;
+  position:relative;
+  overflow:hidden;
+}
+.rak-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:var(--accent-color, var(--gold));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.3s;
+}
+.rak-card:hover{
+  border-color:var(--border2);
+  background:var(--bg3);
+  transform:translateY(-2px);
+}
+.rak-card:hover::before{transform:scaleX(1)}
+.rak-icon{
+  font-size:28px;
+  margin-bottom:16px;
+  display:block;
+}
+.rak-name{
+  font-family:var(--serif);
+  font-size:22px;
+  color:var(--text);
+  margin-bottom:8px;
+  line-height:1.2;
+}
+.rak-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+.rak-count{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted2);
+  letter-spacing:0.1em;
+}
+.rak-arrow{
+  position:absolute;
+  bottom:24px;right:24px;
+  font-family:var(--mono);
+  font-size:14px;
+  color:var(--muted2);
+  transition:all 0.2s;
+}
+.rak-card:hover .rak-arrow{color:var(--gold);transform:translateX(4px)}
+
+/* BUKU GRID */
+#buku-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  gap:14px;
+}
+.buku-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:22px 20px;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:all 0.2s;
+  color:inherit;
+}
+.buku-card:hover{
+  border-color:rgba(201,168,76,0.25);
+  background:var(--bg3);
+  transform:translateY(-1px);
+}
+.buku-sub{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--gold);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+}
+.buku-title{
+  font-size:15px;
+  font-weight:500;
+  color:var(--text);
+  line-height:1.5;
+}
+.buku-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:auto;
+}
+.badge{
+  font-family:var(--mono);
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:2px;
+  letter-spacing:0.06em;
+}
+.badge-level{
+  background:var(--surface);
+  color:var(--muted);
+  border:1px solid var(--border);
+}
+.badge-reward{
+  background:rgba(61,214,200,0.08);
+  color:var(--teal);
+  border:1px solid rgba(61,214,200,0.15);
+}
+.badge-deadline{
+  background:rgba(201,168,76,0.08);
+  color:var(--gold);
+  border:1px solid rgba(201,168,76,0.15);
+}
+.buku-thumb{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:2px;
+  background:var(--bg3);
+}
+
+/* FEATURED */
+.featured-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:80px;
+}
+.featured-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:28px 24px;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  transition:all 0.2s;
+  color:inherit;
+  position:relative;
+  overflow:hidden;
+}
+.featured-card:first-child{
+  grid-column:1/-1;
+  flex-direction:row;
+  gap:32px;
+  align-items:center;
+}
+.featured-card:hover{
+  border-color:rgba(201,168,76,0.2);
+  background:var(--bg3);
+}
+.featured-badge{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--gold);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.featured-badge::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.featured-title{
+  font-family:var(--serif);
+  font-size:22px;
+  color:var(--text);
+  line-height:1.35;
+}
+.featured-card:first-child .featured-title{font-size:28px}
+.featured-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.featured-card:first-child .featured-body{flex:1}
+.featured-reward{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--teal);
+  margin-top:4px;
+}
+
+/* LOADING */
+.loading-state{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:80px 20px;
+  gap:16px;
+  grid-column:1/-1;
+}
+.loading-dots{
+  display:flex;
+  gap:6px;
+}
+.loading-dots span{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  animation:dot 1.2s infinite;
+}
+.loading-dots span:nth-child(2){animation-delay:0.2s}
+.loading-dots span:nth-child(3){animation-delay:0.4s}
+@keyframes dot{0%,80%,100%{opacity:0.2;transform:scale(0.8)}40%{opacity:1;transform:scale(1)}}
+.loading-text{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:0.1em;
+}
+
+/* ERROR STATE */
+.error-state{
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px 20px;
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--muted);
+  border:1px dashed var(--border2);
+  border-radius:3px;
+}
+.error-state a{color:var(--gold);cursor:pointer}
+
+/* EMPTY */
+.empty-state{
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px 20px;
+}
+
+/* DIVIDER */
+.divider{
+  height:1px;
+  background:var(--border);
+  margin:0 48px 60px;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:40px 48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.footer-logo{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--gold);
+  font-weight:700;
+}
+.footer-links{
+  display:flex;
+  gap:24px;
+  list-style:none;
+}
+.footer-links a{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  text-decoration:none;
+  letter-spacing:0.08em;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted2);
+  letter-spacing:0.08em;
+}
+
+/* FADE IN */
+.fade-in{
+  opacity:0;
+  transform:translateY(16px);
+  animation:fadeIn 0.5s forwards;
+}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 60px}
+  .search-section,.section{padding-left:20px;padding-right:20px}
+  .divider{margin-left:20px;margin-right:20px}
+  .hero-stats{gap:28px}
+  .featured-grid{grid-template-columns:1fr}
+  .featured-card:first-child{flex-direction:column}
+  footer{padding:32px 20px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ratonven</a>
+  <ul class="nav-links">
+    <li><a href="#perpustakaan">Perpustakaan</a></li>
+    <li><a href="#tentang">Tentang</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://t.me/ratonven" class="nav-tg" target="_blank">Telegram ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag fade-in">Perpustakaan Digital · Crypto & Web3</div>
+  <h1 class="hero-title fade-in delay-1">
+    Dari nol sampai <em>builder</em> —<br>satu perpustakaan.
+  </h1>
+  <p class="hero-sub fade-in delay-2">
+    Panduan terstruktur untuk airdrop, DeFi, NFT, trading, dan Web3 development. Gratis, terorganisir, dan terus diperbarui.
+  </p>
+  <div class="hero-actions fade-in delay-3">
+    <a href="#perpustakaan" class="btn-primary">Mulai Belajar →</a>
+    <a href="https://t.me/ratonven" class="btn-ghost" target="_blank">Join Komunitas</a>
+  </div>
+  <div class="hero-stats fade-in delay-3">
+    <div class="stat">
+      <span class="stat-num" id="stat-artikel">—</span>
+      <span class="stat-label">Artikel</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-kategori">—</span>
+      <span class="stat-label">Kategori</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Gratis</span>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-wrap">
+    <span class="search-icon">/</span>
+    <input type="text" id="search-input" placeholder="Cari topik — airdrop, DeFi, wallet, testnet...">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section class="section" id="featured-section" style="display:none">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Pilihan Editor</div>
+      <h2 class="section-title">Konten <em>Featured</em></h2>
+    </div>
+  </div>
+  <div class="featured-grid" id="featured-grid"></div>
+</section>
+
+<!-- PERPUSTAKAAN -->
+<section class="section" id="perpustakaan">
+  <div class="section-header">
+    <div>
+      <div class="section-tag" id="section-tag-text">Semua Kategori</div>
+      <h2 class="section-title" id="section-title-text">Pilih <em>Rak</em></h2>
+    </div>
+    <div id="back-btn" style="display:none">
+      <a onclick="showRak()" class="btn-ghost" style="cursor:pointer;font-size:11px;padding:10px 18px">← Kembali</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div id="breadcrumb">
+    <span class="bc-item" onclick="showRak()">🏠 Home</span>
+    <span class="bc-sep">/</span>
+    <span class="bc-current" id="bc-rak"></span>
+  </div>
+
+  <!-- RAK -->
+  <div id="rak-grid">
+    <div class="loading-state">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <div class="loading-text">Memuat perpustakaan...</div>
+    </div>
+  </div>
+
+  <!-- BUKU -->
+  <div id="buku-grid" style="display:none"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer id="tentang">
+  <div class="footer-logo">ratonven</div>
+  <ul class="footer-links">
+    <li><a href="https://t.me/ratonven" target="_blank">Telegram</a></li>
+    <li><a href="https://twitter.com/ratonven" target="_blank">Twitter</a></li>
+    <li><a href="https://ratonven.blogspot.com" target="_blank">Blog</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 ratonven · Perpustakaan Digital Crypto</div>
+</footer>
+
+<script>
+// ============================================================
+// CONFIG — GANTI INI SETELAH APPS SCRIPT DEPLOYED
+// ============================================================
+const API_URL = 'https://script.google.com/macros/s/AKfycbxH0GSc7ddFXUfBGjsdlEliAXfJLswbX4Tt_L6s9tz2y3TrU7JcAMEfF4vgHBwBqw-J/exec';
+
+// Data fallback (tampil sementara sebelum API tersambung)
+const FALLBACK_KATEGORI = [
+  {id:'cat-001',nama:'Airdrop',icon:'🪂',deskripsi:'Hunting token gratis dari project crypto baru sebelum listing',warna:'#c9a84c'},
+  {id:'cat-002',nama:'DeFi',icon:'🏦',deskripsi:'Decentralized Finance — yield farming, liquidity pool, lending',warna:'#3dd6c8'},
+  {id:'cat-003',nama:'NFT',icon:'🎨',deskripsi:'Non-fungible token — minting, trading, dan passive royalty',warna:'#a78bfa'},
+  {id:'cat-004',nama:'Trading',icon:'📈',deskripsi:'Analisis teknikal, strategi spot dan futures, risk management',warna:'#4ade80'},
+  {id:'cat-005',nama:'Web3 Dev',icon:'⚙️',deskripsi:'Smart contract Solidity, dApp development, blockchain tools',warna:'#f87171'},
+  {id:'cat-006',nama:'Wallet & Security',icon:'🔐',deskripsi:'Cara aman kelola wallet crypto, hardware wallet, seed phrase',warna:'#60a5fa'},
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let allKonten = [];
+let allKategori = [];
+let isAPIConnected = false;
+
+// ============================================================
+// FETCH API
+// ============================================================
+async function fetchAPI(action, params = {}) {
+  if (API_URL === 'GANTI_DENGAN_URL_APPS_SCRIPT_SETELAH_DEPLOY') return null;
+  try {
+    const q = new URLSearchParams({action, ...params});
+    const res = await fetch(`${API_URL}?${q}`);
+    const json = await res.json();
+    return json.success ? json.data : null;
+  } catch(e) {
+    return null;
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+async function init() {
+  // Coba load dari API dulu
+  const kategoriAPI = await fetchAPI('kategori');
+  const kontenAPI = await fetchAPI('konten', {limit: 200});
+
+  if (kategoriAPI) {
+    allKategori = kategoriAPI;
+    isAPIConnected = true;
+  } else {
+    allKategori = FALLBACK_KATEGORI;
+  }
+
+  if (kontenAPI) allKonten = kontenAPI;
+
+  // Update stats
+  document.getElementById('stat-artikel').textContent = allKonten.length || '—';
+  document.getElementById('stat-kategori').textContent = allKategori.length;
+
+  // Render
+  showRak();
+  loadFeatured();
+}
+
+// ============================================================
+// RENDER RAK
+// ============================================================
+function showRak() {
+  document.getElementById('rak-grid').style.display = 'grid';
+  document.getElementById('buku-grid').style.display = 'none';
+  document.getElementById('back-btn').style.display = 'none';
+  document.getElementById('breadcrumb').classList.remove('visible');
+  document.getElementById('section-tag-text').textContent = 'Semua Kategori';
+  document.getElementById('section-title-text').innerHTML = 'Pilih <em>Rak</em>';
+
+  const grid = document.getElementById('rak-grid');
+  grid.innerHTML = allKategori.map((rak, i) => {
+    const count = allKonten.filter(k => k.rak === rak.nama).length;
+    return `
+      <div class="rak-card fade-in" style="--accent-color:${rak.warna};animation-delay:${i*0.05}s"
+           onclick="showBuku('${rak.nama}')">
+        <span class="rak-icon">${rak.icon}</span>
+        <div class="rak-name">${rak.nama}</div>
+        <div class="rak-desc">${rak.deskripsi}</div>
+        <div class="rak-count">${count > 0 ? count + ' panduan' : 'Segera hadir'}</div>
+        <div class="rak-arrow">→</div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============================================================
+// RENDER BUKU
+// ============================================================
+async function showBuku(rakNama) {
+  document.getElementById('rak-grid').style.display = 'none';
+  document.getElementById('buku-grid').style.display = 'grid';
+  document.getElementById('back-btn').style.display = 'block';
+  document.getElementById('breadcrumb').classList.add('visible');
+  document.getElementById('bc-rak').textContent = rakNama;
+  document.getElementById('section-tag-text').textContent = 'Rak → ' + rakNama;
+  document.getElementById('section-title-text').innerHTML = `Panduan <em>${rakNama}</em>`;
+
+  const grid = document.getElementById('buku-grid');
+  grid.innerHTML = `<div class="loading-state"><div class="loading-dots"><span></span><span></span><span></span></div><div class="loading-text">Membuka rak...</div></div>`;
+
+  // Fetch dari API kalau tersambung
+  let konten = allKonten.filter(k => k.rak === rakNama);
+  if (isAPIConnected && konten.length === 0) {
+    const data = await fetchAPI('konten', {rak: rakNama});
+    if (data) konten = data;
+  }
+
+  if (konten.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:12px">
+          Konten untuk kategori ini sedang disiapkan
+        </div>
+        <a onclick="showRak()" style="font-family:var(--mono);font-size:11px;color:var(--gold);cursor:pointer">
+          ← Kembali ke semua kategori
+        </a>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = konten.map((b, i) => `
+    <a href="${b.link || '#'}" target="${b.link ? '_blank' : '_self'}"
+       class="buku-card fade-in" style="animation-delay:${i*0.04}s">
+      ${b.thumbnail ? `<img src="${b.thumbnail}" alt="${b.judul}" class="buku-thumb" onerror="this.style.display='none'">` : ''}
+      <div class="buku-sub">${b.sub_rak || rakNama}</div>
+      <div class="buku-title">${b.judul || b.halaman_judul}</div>
+      <div class="buku-meta">
+        <span class="badge badge-level">${b.level || 'beginner'}</span>
+        ${b.reward ? `<span class="badge badge-reward">${b.reward}</span>` : ''}
+        ${b.deadline ? `<span class="badge badge-deadline">s/d ${b.deadline}</span>` : ''}
+      </div>
+    </a>
+  `).join('');
+
+  document.getElementById('perpustakaan').scrollIntoView({behavior:'smooth'});
+}
+
+// ============================================================
+// FEATURED
+// ============================================================
+async function loadFeatured() {
+  let featured = allKonten.filter(k => k.featured === 'TRUE' || k.featured === true);
+  if (isAPIConnected && featured.length === 0) {
+    const data = await fetchAPI('featured');
+    if (data) featured = data;
+  }
+  if (featured.length === 0) return;
+
+  document.getElementById('featured-section').style.display = 'block';
+  const grid = document.getElementById('featured-grid');
+
+  grid.innerHTML = featured.slice(0, 3).map((b, i) => `
+    <a href="${b.link || '#'}" target="${b.link ? '_blank' : '_self'}"
+       class="featured-card fade-in" style="animation-delay:${i*0.1}s">
+      <div ${i===0?'class="featured-body"':''}>
+        <div class="featured-badge">Featured</div>
+        <div class="featured-title">${b.judul || b.halaman_judul}</div>
+        ${i===0 ? `<div class="featured-desc">${b.sub_rak} · ${b.level || 'beginner'}</div>` : ''}
+        ${b.reward ? `<div class="featured-reward">⬡ ${b.reward} potensi reward</div>` : ''}
+      </div>
+    </a>
+  `).join('');
+}
+
+// ============================================================
+// SEARCH
+// ============================================================
+let searchTimeout;
+document.getElementById('search-input').addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const q = this.value.trim().toLowerCase();
+  const resultsEl = document.getElementById('search-results');
+
+  if (q.length < 2) { resultsEl.style.display = 'none'; return; }
+
+  searchTimeout = setTimeout(async () => {
+    let results = allKonten.filter(k =>
+      (k.judul || k.halaman_judul || '').toLowerCase().includes(q) ||
+      (k.tags || []).some(t => t.includes(q)) ||
+      (k.buku || '').toLowerCase().includes(q)
+    );
+
+    if (isAPIConnected && results.length === 0) {
+      const data = await fetchAPI('search', {q});
+      if (data) results = data;
+    }
+
+    if (results.length === 0) {
+      resultsEl.innerHTML = `<div class="search-item"><div class="search-item-title" style="color:var(--muted)">Tidak ada hasil untuk "${q}"</div></div>`;
+    } else {
+      resultsEl.innerHTML = results.slice(0, 6).map(b => `
+        <a href="${b.link || '#'}" target="${b.link ? '_blank' : '_self'}" class="search-item">
+          <div class="search-item-title">${b.judul || b.halaman_judul}</div>
+          <div class="search-item-meta">${b.rak} › ${b.sub_rak} · ${b.level || 'beginner'}</div>
+        </a>
+      `).join('');
+    }
+    resultsEl.style.display = 'block';
+  }, 300);
+});
+
+document.addEventListener('click', (e) => {
+  if (!document.getElementById('search-input').contains(e.target)) {
+    document.getElementById('search-results').style.display = 'none';
+  }
+});
+
+// ============================================================
+// START
+// ============================================================
+init();
+</script>
+</body>
+</html>
