@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Perpustakaan Digital Crypto & Web3 — panduan airdrop, DeFi, NFT, trading, dan Web3 development dari nol sampai builder.">
-<meta name="keywords" content="crypto, web3, airdrop, defi, nft, trading, blockchain, indonesia">
-<meta property="og:title" content="ratonven — Perpustakaan Digital Crypto & Web3">
-<meta property="og:description" content="Dari nol sampai builder — edukasi crypto & Web3 lengkap dalam satu perpustakaan.">
-<title>ratonven — Perpustakaan Digital Crypto & Web3</title>
+<meta name="description" content="Cyberpunk Crypto & Web3 Digital Library — structured guides for airdrops, DeFi, NFT, trading, and Web3 development from zero to builder.">
+<meta name="keywords" content="crypto, web3, airdrop, defi, nft, trading, blockchain, cyberpunk, developer">
+<meta property="og:title" content="ratonven — Cyberpunk Crypto & Web3 Library">
+<meta property="og:description" content="From zero to builder — complete crypto and Web3 education inside one cyberpunk library.">
+<title>ratonven — Cyberpunk Crypto & Web3 Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
@@ -24,22 +24,22 @@
   --border:   rgba(255,255,255,0.05);
   --border2:  rgba(255,255,255,0.09);
   --border3:  rgba(255,255,255,0.14);
-  --text:    #edeae4;
+  --text:    #f6eaff;
   --text2:   rgba(237,234,228,0.7);
   --muted:   rgba(237,234,228,0.42);
   --muted2:  rgba(237,234,228,0.22);
-  --gold:    #c8a454;
-  --gold2:   #e9cc82;
-  --gold3:   #f5e0a8;
+  --gold:    #b300ff;
+  --gold2:   #f0b6ff;
+  --gold3:   #ffffff;
   --gold-dim: rgba(200,164,84,0.10);
   --gold-glow: rgba(200,164,84,0.18);
-  --teal:    #31d4c4;
-  --teal2:   #5ee8da;
+  --teal:    #00f5ff;
+  --teal2:   #69fbff;
   --teal-dim: rgba(49,212,196,0.08);
-  --violet:  #9d7dff;
+  --violet:  #8b5cf6;
   --violet-dim: rgba(157,125,255,0.10);
-  --red:     #f4765a;
-  --green:   #50e887;
+  --red:     #ff2bd6;
+  --green:   #39ff14;
   --serif:   'DM Serif Display', Georgia, serif;
   --sans:    'DM Sans', sans-serif;
   --mono:    'Space Mono', monospace;
@@ -1047,6 +1047,51 @@ footer::before{
   .slide-visual{height:220px}
   .slides-nav{padding:20px 20px 0}
 }
+
+/* ============================================================
+   CYBERPUNK PURPLE DARK UPGRADE — non-destructive override
+   ============================================================ */
+:root{
+  --bg:#030008;--bg2:#070012;--bg3:#0d0022;--bg4:#160037;
+  --surface:rgba(179,0,255,.08);--surface2:rgba(0,245,255,.08);
+  --border:rgba(179,0,255,.18);--border2:rgba(0,245,255,.22);--border3:rgba(255,43,214,.28);
+  --text:#f6eaff;--text2:rgba(246,234,255,.78);--muted:rgba(246,234,255,.55);--muted2:rgba(246,234,255,.28);
+  --gold:#b300ff;--gold2:#f0b6ff;--gold3:#fff;--gold-dim:rgba(179,0,255,.14);--gold-glow:rgba(179,0,255,.35);
+  --teal:#00f5ff;--teal2:#69fbff;--teal-dim:rgba(0,245,255,.10);--violet:#8b5cf6;--violet-dim:rgba(139,92,246,.16);
+  --red:#ff2bd6;--green:#39ff14;--radius:14px;
+}
+body{
+  background:
+    radial-gradient(circle at 18% 10%,rgba(179,0,255,.22),transparent 30%),
+    radial-gradient(circle at 82% 18%,rgba(0,245,255,.13),transparent 28%),
+    radial-gradient(circle at 50% 100%,rgba(255,43,214,.12),transparent 36%),
+    linear-gradient(180deg,#030008 0%,#070012 42%,#020006 100%);
+}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px);mix-blend-mode:overlay;opacity:.22}
+.cyber-grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(179,0,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.06) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,transparent,black 12%,black 82%,transparent)}
+.neon-vignette{position:fixed;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 160px rgba(179,0,255,.22),inset 0 0 320px rgba(0,0,0,.82)}
+.hud-corner{position:fixed;z-index:40;font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:rgba(0,245,255,.52);pointer-events:none;text-shadow:0 0 12px rgba(0,245,255,.7)}
+.hud-tl{top:92px;left:22px}.hud-br{right:22px;bottom:22px}
+nav{box-shadow:0 0 32px rgba(179,0,255,.18),inset 0 -1px 0 rgba(0,245,255,.18);border-bottom:1px solid rgba(179,0,255,.32)}
+.nav-logo,.footer-logo{color:#fff;text-shadow:0 0 8px #b300ff,0 0 22px rgba(179,0,255,.65)}
+.nav-tg,.btn-primary,.btn-ghost,.rak-card,.buku-card,.fc-spotlight,.fc-card,.crypto-layer,.crypto-shield,.eco-node,#search-input{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.btn-primary{background:linear-gradient(90deg,#b300ff,#ff2bd6,#00f5ff);color:#030008;font-weight:700;box-shadow:0 0 24px rgba(179,0,255,.45),0 0 60px rgba(0,245,255,.18)}
+.btn-ghost,.nav-tg{background:rgba(179,0,255,.08);border-color:rgba(0,245,255,.32);color:#f6eaff;box-shadow:inset 0 0 18px rgba(179,0,255,.12)}
+.hero-title{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.04em;text-shadow:0 0 18px rgba(179,0,255,.55),0 0 44px rgba(0,245,255,.18)}
+.hero-title em{color:#00f5ff;text-shadow:0 0 16px rgba(0,245,255,.75)}
+.hero-title .accent{color:#ff2bd6;text-shadow:0 0 18px rgba(255,43,214,.75)}
+.glitch-title{position:relative}.glitch-title::before,.glitch-title::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;opacity:.14;pointer-events:none}.glitch-title::before{transform:translate(2px,-1px);color:#00f5ff;animation:glitch 2.7s infinite linear alternate-reverse}.glitch-title::after{transform:translate(-2px,1px);color:#ff2bd6;animation:glitch 3.1s infinite linear alternate}
+.hero-grid-lines{background-size:54px 54px;background-image:linear-gradient(rgba(179,0,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.07) 1px,transparent 1px)}
+.hero-scan{height:2px;background:linear-gradient(90deg,transparent,#00f5ff,#ff2bd6,#b300ff,transparent);box-shadow:0 0 18px #00f5ff;opacity:.55}
+.rak-card,.buku-card,.fc-spotlight,.fc-card,.crypto-layer,.eco-node{background:linear-gradient(180deg,rgba(17,0,43,.9),rgba(4,0,12,.92));box-shadow:0 0 0 1px rgba(179,0,255,.12),0 24px 80px rgba(0,0,0,.32)}
+.rak-card:hover,.buku-card:hover,.fc-card:hover,.eco-node:hover{box-shadow:0 0 0 1px rgba(0,245,255,.4),0 0 34px rgba(179,0,255,.28),0 28px 90px rgba(0,0,0,.5)}
+.section-title em,.slide-title span{color:#00f5ff;text-shadow:0 0 18px rgba(0,245,255,.6)}
+.search-wrap{filter:drop-shadow(0 0 20px rgba(179,0,255,.22))}#search-input:focus{border-color:#00f5ff;box-shadow:0 0 0 3px rgba(0,245,255,.1),0 0 30px rgba(179,0,255,.22)}
+.stat-num{background:linear-gradient(90deg,#f0b6ff,#00f5ff,#ff2bd6);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
+.slide-dot.active{background:linear-gradient(90deg,#b300ff,#00f5ff);box-shadow:0 0 16px rgba(0,245,255,.7)}
+footer{background:rgba(3,0,8,.72);box-shadow:0 -20px 80px rgba(179,0,255,.08)}
+@media(max-width:768px){.hud-corner{display:none}.hero-title{font-size:clamp(38px,14vw,68px)}.eco-grid{grid-template-columns:1fr}.nav-right{gap:8px}.nav-status{display:none}}
+
 </style>
 </head>
 <body>
@@ -1059,6 +1104,12 @@ footer::before{
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
+<!-- CYBERPUNK FX LAYERS -->
+<div class="cyber-grid-overlay"></div>
+<div class="neon-vignette"></div>
+<div class="hud-corner hud-tl">RATONVEN//NODE_01</div>
+<div class="hud-corner hud-br">PURPLE_DARK//ONLINE</div>
+
 
 <!-- ============================================================
      NAV
@@ -1066,11 +1117,11 @@ footer::before{
 <nav id="main-nav">
   <a href="#" class="nav-logo">ratonven</a>
   <ul class="nav-links">
-    <li><a href="#perpustakaan">Perpustakaan</a></li>
-    <li><a href="#sistem">Sistem</a></li>
-    <li><a href="#keamanan">Keamanan</a></li>
-    <li><a href="#ecosystem">Ekosistem</a></li>
-    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#perpustakaan">Library</a></li>
+    <li><a href="#sistem">System</a></li>
+    <li><a href="#keamanan">Security</a></li>
+    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#tentang">About</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-status">
@@ -1091,40 +1142,40 @@ footer::before{
 
   <div class="hero-tag">
     <span class="hero-tag-line"></span>
-    Perpustakaan Digital
+    Library Digital
     <span class="hero-tag-code">CRYPTO · WEB3</span>
   </div>
-  <h1 class="hero-title">
-    Dari nol sampai <em>builder</em> —<br>
-    satu <span class="accent">perpustakaan</span>.
+  <h1 class="hero-title glitch-title" data-text="FROM ZERO TO BUILDER — ONE CYBER LIBRARY">
+    From zero to <em>builder</em> —<br>
+    one <span class="accent">cyber library</span>.
   </h1>
   <p class="hero-sub">
-    Panduan terstruktur untuk airdrop, DeFi, NFT, trading, dan Web3 development. Gratis, terorganisir, dan terus diperbarui.
+    A structured operating system for airdrops, DeFi, NFTs, trading, and Web3 development. Free, organized, and continuously upgraded.
   </p>
   <div class="hero-actions">
-    <a href="#perpustakaan" class="btn-primary">Mulai Belajar <span>→</span></a>
-    <a href="https://t.me/Ravlabs" class="btn-ghost" target="_blank">Join Komunitas</a>
+    <a href="#perpustakaan" class="btn-primary">Start Learning <span>→</span></a>
+    <a href="https://t.me/Ravlabs" class="btn-ghost" target="_blank">Join Community</a>
   </div>
   <div class="hero-stats">
     <div class="stat">
       <span class="stat-num" id="stat-artikel">—</span>
-      <span class="stat-label">Artikel</span>
+      <span class="stat-label">Articles</span>
     </div>
     <div class="stat">
       <span class="stat-num" id="stat-kategori">—</span>
-      <span class="stat-label">Kategori</span>
+      <span class="stat-label">Categories</span>
     </div>
     <div class="stat">
       <span class="stat-num">100%</span>
-      <span class="stat-label">Gratis</span>
+      <span class="stat-label">Free</span>
     </div>
   </div>
 
   <!-- Decorative hex SVG -->
   <svg class="hero-hex" width="280" height="280" viewBox="0 0 280 280" style="position:absolute;right:80px;bottom:80px;opacity:0.04;pointer-events:none">
-    <polygon points="140,10 250,75 250,205 140,270 30,205 30,75" fill="none" stroke="#c8a454" stroke-width="1"/>
-    <polygon points="140,40 225,90 225,190 140,240 55,190 55,90" fill="none" stroke="#c8a454" stroke-width="0.5"/>
-    <polygon points="140,70 200,105 200,175 140,210 80,175 80,105" fill="none" stroke="#c8a454" stroke-width="0.5"/>
+    <polygon points="140,10 250,75 250,205 140,270 30,205 30,75" fill="none" stroke="#b300ff" stroke-width="1"/>
+    <polygon points="140,40 225,90 225,190 140,240 55,190 55,90" fill="none" stroke="#b300ff" stroke-width="0.5"/>
+    <polygon points="140,70 200,105 200,175 140,210 80,175 80,105" fill="none" stroke="#b300ff" stroke-width="0.5"/>
   </svg>
 </section>
 
@@ -1132,8 +1183,8 @@ footer::before{
 <div class="search-section">
   <div class="search-wrap">
     <span class="search-icon">/</span>
-    <input type="text" id="search-input" placeholder="Cari topik — airdrop, DeFi, wallet, testnet...">
-    <span class="search-hint">ESC untuk tutup</span>
+    <input type="text" id="search-input" placeholder="Search topics — airdrop, DeFi, wallet, testnet...">
+    <span class="search-hint">ESC to close</span>
     <div class="search-results" id="search-results"></div>
   </div>
 </div>
@@ -1142,8 +1193,8 @@ footer::before{
 <section class="section" id="featured-section" style="display:none">
   <div class="section-header">
     <div>
-      <div class="section-tag">Pilihan Editor</div>
-      <h2 class="section-title">Konten <em>Featured</em></h2>
+      <div class="section-tag">Editor Picks</div>
+      <h2 class="section-title">Featured <em>Content</em></h2>
     </div>
     <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em" id="featured-count"></div>
   </div>
@@ -1154,11 +1205,11 @@ footer::before{
 <section class="section" id="perpustakaan">
   <div class="section-header">
     <div>
-      <div class="section-tag" id="section-tag-text">Semua Kategori</div>
-      <h2 class="section-title" id="section-title-text">Pilih <em>Rak</em></h2>
+      <div class="section-tag" id="section-tag-text">Semua Categories</div>
+      <h2 class="section-title" id="section-title-text">Choose a <em>Shelf</em></h2>
     </div>
     <div id="back-btn" style="display:none">
-      <a onclick="showRak()" class="btn-ghost" style="cursor:pointer;font-size:10px;padding:10px 18px">← Kembali</a>
+      <a onclick="showRak()" class="btn-ghost" style="cursor:pointer;font-size:10px;padding:10px 18px">← Back</a>
     </div>
   </div>
   <div id="breadcrumb">
@@ -1169,7 +1220,7 @@ footer::before{
   <div id="rak-grid">
     <div class="loading-state">
       <div class="loading-dots"><span></span><span></span><span></span></div>
-      <div class="loading-text">Memuat perpustakaan...</div>
+      <div class="loading-text">Loading library...</div>
     </div>
   </div>
   <div id="buku-grid" style="display:none"></div>
@@ -1182,10 +1233,10 @@ footer::before{
      ============================================================ -->
 <section id="sistem" class="slides-section reveal">
   <div class="slides-header">
-    <div class="section-tag">Arsitektur Sistem</div>
+    <div class="section-tag">Arsitektur System</div>
     <h2 class="section-title">The Chain & <em>Block System</em></h2>
     <p style="font-size:14px;color:var(--muted);margin-top:12px;max-width:480px;line-height:1.8">
-      Bukan sekadar database — ini adalah organisme hidup yang terus berdetak.
+      Not just a database — a living organism that keeps pulsing.
     </p>
   </div>
 
@@ -1198,7 +1249,7 @@ footer::before{
           <div class="slide-num">01 / 05</div>
           <h3 class="slide-title">Genesis <span>Layer</span></h3>
           <p class="slide-desc">
-            Setiap sistem bermula dari satu titik — Genesis Block. Blok pertama yang tidak memiliki referensi sebelumnya, hanya data murni yang menjadi fondasi seluruh rantai yang mengikutinya.
+            Every system begins from one point — the Genesis Block. The first block has no previous reference, only pure data that becomes the foundation for every chain after it.
           </p>
           <div class="slide-tags">
             <span class="slide-tag">HASH: 000000</span>
@@ -1210,14 +1261,14 @@ footer::before{
           <svg class="slide-svg" viewBox="0 0 400 340">
             <defs>
               <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#c8a454" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#c8a454" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#b300ff" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#b300ff" stop-opacity="0"/>
               </radialGradient>
             </defs>
             <!-- Glow -->
             <circle cx="200" cy="170" r="120" fill="url(#glow1)"/>
             <!-- Grid -->
-            <g opacity="0.08" stroke="#c8a454" stroke-width="0.5">
+            <g opacity="0.08" stroke="#b300ff" stroke-width="0.5">
               <line x1="0" y1="85" x2="400" y2="85"/>
               <line x1="0" y1="170" x2="400" y2="170"/>
               <line x1="0" y1="255" x2="400" y2="255"/>
@@ -1226,19 +1277,19 @@ footer::before{
               <line x1="300" y1="0" x2="300" y2="340"/>
             </g>
             <!-- Genesis block -->
-            <rect x="120" y="105" width="160" height="130" rx="3" fill="none" stroke="#c8a454" stroke-width="1.5"/>
+            <rect x="120" y="105" width="160" height="130" rx="3" fill="none" stroke="#b300ff" stroke-width="1.5"/>
             <rect x="130" y="115" width="140" height="110" rx="2" fill="rgba(200,164,84,0.04)"/>
             <!-- Block content -->
-            <text x="200" y="145" text-anchor="middle" fill="#c8a454" font-family="'Space Mono',monospace" font-size="10" opacity="0.8">GENESIS BLOCK</text>
-            <text x="200" y="165" text-anchor="middle" fill="#e9cc82" font-family="'Space Mono',monospace" font-size="8">#000000</text>
+            <text x="200" y="145" text-anchor="middle" fill="#b300ff" font-family="'Space Mono',monospace" font-size="10" opacity="0.8">GENESIS BLOCK</text>
+            <text x="200" y="165" text-anchor="middle" fill="#f0b6ff" font-family="'Space Mono',monospace" font-size="8">#000000</text>
             <line x1="140" y1="175" x2="260" y2="175" stroke="rgba(200,164,84,0.2)" stroke-width="0.5"/>
             <text x="200" y="192" text-anchor="middle" fill="rgba(237,234,228,0.4)" font-family="'Space Mono',monospace" font-size="8">PREV: NULL</text>
             <text x="200" y="210" text-anchor="middle" fill="rgba(237,234,228,0.4)" font-family="'Space Mono',monospace" font-size="8">NONCE: 0</text>
             <!-- Pulse rings -->
-            <circle cx="200" cy="170" r="90" fill="none" stroke="#c8a454" stroke-width="0.5" stroke-dasharray="4,8" opacity="0.2">
+            <circle cx="200" cy="170" r="90" fill="none" stroke="#b300ff" stroke-width="0.5" stroke-dasharray="4,8" opacity="0.2">
               <animateTransform attributeName="transform" type="rotate" from="0 200 170" to="360 200 170" dur="20s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="200" cy="170" r="110" fill="none" stroke="#c8a454" stroke-width="0.5" stroke-dasharray="2,12" opacity="0.1">
+            <circle cx="200" cy="170" r="110" fill="none" stroke="#b300ff" stroke-width="0.5" stroke-dasharray="2,12" opacity="0.1">
               <animateTransform attributeName="transform" type="rotate" from="360 200 170" to="0 200 170" dur="30s" repeatCount="indefinite"/>
             </circle>
           </svg>
@@ -1251,7 +1302,7 @@ footer::before{
           <div class="slide-num">02 / 05</div>
           <h3 class="slide-title">Block <span>Structure</span></h3>
           <p class="slide-desc">
-            Setiap blok adalah kapsul data yang tersegel: header dengan metadata, body berisi transaksi, dan kriptografi yang menjamin integritasnya. Satu perubahan kecil — seluruh hash berubah.
+            Every block is a sealed data capsule: a header with metadata, a body containing transactions, and cryptography that protects its integrity. One tiny change — the entire hash mutates.
           </p>
           <div class="slide-tags">
             <span class="slide-tag">HEADER</span>
@@ -1264,32 +1315,32 @@ footer::before{
           <svg class="slide-svg" viewBox="0 0 400 340">
             <defs>
               <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#31d4c4" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#31d4c4" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#00f5ff" stop-opacity="0"/>
               </radialGradient>
             </defs>
             <circle cx="200" cy="170" r="130" fill="url(#glow2)"/>
             <!-- Layered block structure -->
-            <rect x="80" y="60" width="240" height="45" rx="2" fill="rgba(49,212,196,0.06)" stroke="#31d4c4" stroke-width="1" opacity="0.8"/>
-            <text x="200" y="87" text-anchor="middle" fill="#31d4c4" font-family="'Space Mono',monospace" font-size="9">BLOCK HEADER</text>
+            <rect x="80" y="60" width="240" height="45" rx="2" fill="rgba(49,212,196,0.06)" stroke="#00f5ff" stroke-width="1" opacity="0.8"/>
+            <text x="200" y="87" text-anchor="middle" fill="#00f5ff" font-family="'Space Mono',monospace" font-size="9">BLOCK HEADER</text>
             
-            <rect x="80" y="115" width="240" height="45" rx="2" fill="rgba(49,212,196,0.04)" stroke="#31d4c4" stroke-width="0.8" opacity="0.6"/>
+            <rect x="80" y="115" width="240" height="45" rx="2" fill="rgba(49,212,196,0.04)" stroke="#00f5ff" stroke-width="0.8" opacity="0.6"/>
             <text x="200" y="136" text-anchor="middle" fill="rgba(49,212,196,0.8)" font-family="'Space Mono',monospace" font-size="9">PREV HASH</text>
             <text x="200" y="151" text-anchor="middle" fill="rgba(237,234,228,0.3)" font-family="'Space Mono',monospace" font-size="7">a3f8...c219</text>
 
-            <rect x="80" y="170" width="240" height="45" rx="2" fill="rgba(49,212,196,0.04)" stroke="#31d4c4" stroke-width="0.8" opacity="0.5"/>
+            <rect x="80" y="170" width="240" height="45" rx="2" fill="rgba(49,212,196,0.04)" stroke="#00f5ff" stroke-width="0.8" opacity="0.5"/>
             <text x="200" y="191" text-anchor="middle" fill="rgba(49,212,196,0.7)" font-family="'Space Mono',monospace" font-size="9">MERKLE ROOT</text>
             <text x="200" y="206" text-anchor="middle" fill="rgba(237,234,228,0.3)" font-family="'Space Mono',monospace" font-size="7">7b2e...f491</text>
 
-            <rect x="80" y="225" width="240" height="75" rx="2" fill="rgba(49,212,196,0.03)" stroke="#31d4c4" stroke-width="0.6" opacity="0.4"/>
+            <rect x="80" y="225" width="240" height="75" rx="2" fill="rgba(49,212,196,0.03)" stroke="#00f5ff" stroke-width="0.6" opacity="0.4"/>
             <text x="200" y="246" text-anchor="middle" fill="rgba(49,212,196,0.6)" font-family="'Space Mono',monospace" font-size="9">TRANSACTIONS</text>
             <text x="200" y="263" text-anchor="middle" fill="rgba(237,234,228,0.25)" font-family="'Space Mono',monospace" font-size="7">TX#1 · TX#2 · TX#3 · ...</text>
             <text x="200" y="278" text-anchor="middle" fill="rgba(237,234,228,0.2)" font-family="'Space Mono',monospace" font-size="7">2,840 transactions</text>
 
             <!-- Connection arrows -->
-            <line x1="200" y1="105" x2="200" y2="115" stroke="#31d4c4" stroke-width="0.5" opacity="0.4"/>
-            <line x1="200" y1="160" x2="200" y2="170" stroke="#31d4c4" stroke-width="0.5" opacity="0.4"/>
-            <line x1="200" y1="215" x2="200" y2="225" stroke="#31d4c4" stroke-width="0.5" opacity="0.4"/>
+            <line x1="200" y1="105" x2="200" y2="115" stroke="#00f5ff" stroke-width="0.5" opacity="0.4"/>
+            <line x1="200" y1="160" x2="200" y2="170" stroke="#00f5ff" stroke-width="0.5" opacity="0.4"/>
+            <line x1="200" y1="215" x2="200" y2="225" stroke="#00f5ff" stroke-width="0.5" opacity="0.4"/>
           </svg>
         </div>
       </div>
@@ -1300,7 +1351,7 @@ footer::before{
           <div class="slide-num">03 / 05</div>
           <h3 class="slide-title">Chain <span>Connection</span></h3>
           <p class="slide-desc">
-            Hash dari blok sebelumnya tertanam dalam blok berikutnya. Ini bukan sekadar referensi — ini adalah segel matematis yang membuat sejarah tidak bisa diubah tanpa menghancurkan seluruh rantai.
+            The previous block hash is embedded inside the next block. It is not just a reference — it is a mathematical seal that makes history impossible to rewrite without breaking the entire chain.
           </p>
           <div class="slide-tags">
             <span class="slide-tag">PREV HASH</span>
@@ -1318,9 +1369,9 @@ footer::before{
             </defs>
             <g>
               <!-- Block A -->
-              <rect x="20" y="130" width="90" height="80" rx="2" fill="rgba(200,164,84,0.05)" stroke="#c8a454" stroke-width="1"/>
-              <text x="65" y="158" text-anchor="middle" fill="#c8a454" font-family="'Space Mono',monospace" font-size="8">BLOCK</text>
-              <text x="65" y="173" text-anchor="middle" fill="#e9cc82" font-family="'Space Mono',monospace" font-size="9" font-weight="700">#001</text>
+              <rect x="20" y="130" width="90" height="80" rx="2" fill="rgba(200,164,84,0.05)" stroke="#b300ff" stroke-width="1"/>
+              <text x="65" y="158" text-anchor="middle" fill="#b300ff" font-family="'Space Mono',monospace" font-size="8">BLOCK</text>
+              <text x="65" y="173" text-anchor="middle" fill="#f0b6ff" font-family="'Space Mono',monospace" font-size="9" font-weight="700">#001</text>
               <text x="65" y="192" text-anchor="middle" fill="rgba(237,234,228,0.3)" font-family="'Space Mono',monospace" font-size="7">a3f8...c219</text>
 
               <!-- Arrow 1 -->
@@ -1329,9 +1380,9 @@ footer::before{
               </line>
 
               <!-- Block B -->
-              <rect x="150" y="130" width="90" height="80" rx="2" fill="rgba(200,164,84,0.05)" stroke="#c8a454" stroke-width="1"/>
-              <text x="195" y="158" text-anchor="middle" fill="#c8a454" font-family="'Space Mono',monospace" font-size="8">BLOCK</text>
-              <text x="195" y="173" text-anchor="middle" fill="#e9cc82" font-family="'Space Mono',monospace" font-size="9" font-weight="700">#002</text>
+              <rect x="150" y="130" width="90" height="80" rx="2" fill="rgba(200,164,84,0.05)" stroke="#b300ff" stroke-width="1"/>
+              <text x="195" y="158" text-anchor="middle" fill="#b300ff" font-family="'Space Mono',monospace" font-size="8">BLOCK</text>
+              <text x="195" y="173" text-anchor="middle" fill="#f0b6ff" font-family="'Space Mono',monospace" font-size="9" font-weight="700">#002</text>
               <text x="195" y="192" text-anchor="middle" fill="rgba(237,234,228,0.3)" font-family="'Space Mono',monospace" font-size="7">7b2e...f491</text>
 
               <!-- Arrow 2 -->
@@ -1340,9 +1391,9 @@ footer::before{
               </line>
 
               <!-- Block C -->
-              <rect x="280" y="130" width="90" height="80" rx="2" fill="rgba(200,164,84,0.05)" stroke="#c8a454" stroke-width="1"/>
-              <text x="325" y="158" text-anchor="middle" fill="#c8a454" font-family="'Space Mono',monospace" font-size="8">BLOCK</text>
-              <text x="325" y="173" text-anchor="middle" fill="#e9cc82" font-family="'Space Mono',monospace" font-size="9" font-weight="700">#003</text>
+              <rect x="280" y="130" width="90" height="80" rx="2" fill="rgba(200,164,84,0.05)" stroke="#b300ff" stroke-width="1"/>
+              <text x="325" y="158" text-anchor="middle" fill="#b300ff" font-family="'Space Mono',monospace" font-size="8">BLOCK</text>
+              <text x="325" y="173" text-anchor="middle" fill="#f0b6ff" font-family="'Space Mono',monospace" font-size="9" font-weight="700">#003</text>
               <text x="325" y="192" text-anchor="middle" fill="rgba(237,234,228,0.3)" font-family="'Space Mono',monospace" font-size="7">9c1a...d834</text>
 
               <!-- Hash link labels -->
@@ -1350,7 +1401,7 @@ footer::before{
               <text x="257" y="158" text-anchor="middle" fill="rgba(200,164,84,0.5)" font-family="'Space Mono',monospace" font-size="7">HASH</text>
             </g>
             <!-- Bottom label -->
-            <text x="200" y="260" text-anchor="middle" fill="rgba(237,234,228,0.2)" font-family="'Space Mono',monospace" font-size="9">Ubah satu blok → seluruh chain invalid</text>
+            <text x="200" y="260" text-anchor="middle" fill="rgba(237,234,228,0.2)" font-family="'Space Mono',monospace" font-size="9">Change one block → the entire chain becomes invalid</text>
           </svg>
         </div>
       </div>
@@ -1361,7 +1412,7 @@ footer::before{
           <div class="slide-num">04 / 05</div>
           <h3 class="slide-title">Network <span>Consensus</span></h3>
           <p class="slide-desc">
-            Tidak ada satu entitas yang mengontrol. Ribuan node di seluruh dunia menjaga konsensus — setiap transaksi divalidasi oleh mayoritas sebelum menjadi bagian dari sejarah permanen.
+            No single entity controls it. Thousands of nodes around the world maintain consensus — every transaction is validated by the majority before becoming permanent history.
           </p>
           <div class="slide-tags">
             <span class="slide-tag">PROOF OF WORK</span>
@@ -1373,13 +1424,13 @@ footer::before{
           <svg class="slide-svg" viewBox="0 0 400 340">
             <defs>
               <radialGradient id="glow4" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#9d7dff" stop-opacity="0.15"/>
-                <stop offset="100%" stop-color="#9d7dff" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
               </radialGradient>
             </defs>
             <circle cx="200" cy="170" r="130" fill="url(#glow4)"/>
             <!-- Network connections -->
-            <g opacity="0.2" stroke="#9d7dff" stroke-width="0.8">
+            <g opacity="0.2" stroke="#8b5cf6" stroke-width="0.8">
               <line x1="200" y1="170" x2="200" y2="60"/>
               <line x1="200" y1="170" x2="310" y2="130"/>
               <line x1="200" y1="170" x2="290" y2="250"/>
@@ -1394,28 +1445,28 @@ footer::before{
             <!-- Nodes -->
             <g>
               <!-- Center node (validator) -->
-              <circle cx="200" cy="170" r="18" fill="rgba(157,125,255,0.15)" stroke="#9d7dff" stroke-width="1.5"/>
-              <text x="200" y="166" text-anchor="middle" fill="#9d7dff" font-family="'Space Mono',monospace" font-size="7">NODE</text>
-              <text x="200" y="178" text-anchor="middle" fill="#9d7dff" font-family="'Space Mono',monospace" font-size="7">CORE</text>
+              <circle cx="200" cy="170" r="18" fill="rgba(157,125,255,0.15)" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="200" y="166" text-anchor="middle" fill="#8b5cf6" font-family="'Space Mono',monospace" font-size="7">NODE</text>
+              <text x="200" y="178" text-anchor="middle" fill="#8b5cf6" font-family="'Space Mono',monospace" font-size="7">CORE</text>
 
               <!-- Outer nodes -->
-              <circle cx="200" cy="60" r="14" fill="rgba(157,125,255,0.1)" stroke="#9d7dff" stroke-width="1"/>
+              <circle cx="200" cy="60" r="14" fill="rgba(157,125,255,0.1)" stroke="#8b5cf6" stroke-width="1"/>
               <text x="200" y="64" text-anchor="middle" fill="rgba(157,125,255,0.8)" font-family="'Space Mono',monospace" font-size="8">N1</text>
 
-              <circle cx="310" cy="130" r="14" fill="rgba(157,125,255,0.1)" stroke="#9d7dff" stroke-width="1"/>
+              <circle cx="310" cy="130" r="14" fill="rgba(157,125,255,0.1)" stroke="#8b5cf6" stroke-width="1"/>
               <text x="310" y="134" text-anchor="middle" fill="rgba(157,125,255,0.8)" font-family="'Space Mono',monospace" font-size="8">N2</text>
 
-              <circle cx="290" cy="250" r="14" fill="rgba(157,125,255,0.1)" stroke="#9d7dff" stroke-width="1"/>
+              <circle cx="290" cy="250" r="14" fill="rgba(157,125,255,0.1)" stroke="#8b5cf6" stroke-width="1"/>
               <text x="290" y="254" text-anchor="middle" fill="rgba(157,125,255,0.8)" font-family="'Space Mono',monospace" font-size="8">N3</text>
 
-              <circle cx="120" cy="270" r="14" fill="rgba(157,125,255,0.1)" stroke="#9d7dff" stroke-width="1"/>
+              <circle cx="120" cy="270" r="14" fill="rgba(157,125,255,0.1)" stroke="#8b5cf6" stroke-width="1"/>
               <text x="120" y="274" text-anchor="middle" fill="rgba(157,125,255,0.8)" font-family="'Space Mono',monospace" font-size="8">N4</text>
 
-              <circle cx="85" cy="130" r="14" fill="rgba(157,125,255,0.1)" stroke="#9d7dff" stroke-width="1"/>
+              <circle cx="85" cy="130" r="14" fill="rgba(157,125,255,0.1)" stroke="#8b5cf6" stroke-width="1"/>
               <text x="85" y="134" text-anchor="middle" fill="rgba(157,125,255,0.8)" font-family="'Space Mono',monospace" font-size="8">N5</text>
             </g>
             <!-- Pulse on center -->
-            <circle cx="200" cy="170" r="18" fill="none" stroke="#9d7dff" stroke-width="1" opacity="0.4">
+            <circle cx="200" cy="170" r="18" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.4">
               <animate attributeName="r" from="18" to="40" dur="2s" repeatCount="indefinite"/>
               <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite"/>
             </circle>
@@ -1429,7 +1480,7 @@ footer::before{
           <div class="slide-num">05 / 05</div>
           <h3 class="slide-title">Self-Sustaining <span>System</span></h3>
           <p class="slide-desc">
-            Tidak butuh server pusat. Tidak butuh administrator. Blockchain adalah sistem yang berjalan sendiri — diinsentivasi oleh ekonomi token, dijaga oleh konsensus, dan diperbarui oleh komunitas.
+            No central server. No administrator. Blockchain is a self-running system — incentivized by token economics, protected by consensus, and upgraded by the community.
           </p>
           <div class="slide-tags">
             <span class="slide-tag">AUTONOMOUS</span>
@@ -1441,8 +1492,8 @@ footer::before{
           <svg class="slide-svg" viewBox="0 0 400 340">
             <defs>
               <radialGradient id="glow5" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#50e887" stop-opacity="0.15"/>
-                <stop offset="100%" stop-color="#50e887" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#39ff14" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
               </radialGradient>
             </defs>
             <circle cx="200" cy="170" r="130" fill="url(#glow5)"/>
@@ -1454,18 +1505,18 @@ footer::before{
               <animateTransform attributeName="transform" type="rotate" from="0 200 170" to="-360 200 170" dur="18s" repeatCount="indefinite"/>
             </ellipse>
             <!-- Center system -->
-            <circle cx="200" cy="170" r="38" fill="rgba(80,232,135,0.06)" stroke="#50e887" stroke-width="1.5"/>
-            <text x="200" y="164" text-anchor="middle" fill="#50e887" font-family="'Space Mono',monospace" font-size="8">BLOCKCHAIN</text>
+            <circle cx="200" cy="170" r="38" fill="rgba(80,232,135,0.06)" stroke="#39ff14" stroke-width="1.5"/>
+            <text x="200" y="164" text-anchor="middle" fill="#39ff14" font-family="'Space Mono',monospace" font-size="8">BLOCKCHAIN</text>
             <text x="200" y="178" text-anchor="middle" fill="rgba(80,232,135,0.7)" font-family="'Space Mono',monospace" font-size="8">ACTIVE</text>
             <!-- Orbiting tokens -->
-            <circle r="7" fill="rgba(80,232,135,0.15)" stroke="#50e887" stroke-width="1">
+            <circle r="7" fill="rgba(80,232,135,0.15)" stroke="#39ff14" stroke-width="1">
               <animateMotion dur="6s" repeatCount="indefinite">
                 <mpath href="#orbit1"/>
               </animateMotion>
             </circle>
             <path id="orbit1" d="M 80,170 A 120,40 0 1 1 80,169.9" fill="none"/>
 
-            <circle r="5" fill="rgba(200,164,84,0.15)" stroke="#c8a454" stroke-width="1">
+            <circle r="5" fill="rgba(200,164,84,0.15)" stroke="#b300ff" stroke-width="1">
               <animateMotion dur="9s" repeatCount="indefinite" begin="3s">
                 <mpath href="#orbit2"/>
               </animateMotion>
@@ -1497,7 +1548,7 @@ footer::before{
 <section id="keamanan" class="crypto-section reveal">
   <div class="section-header crypto-header">
     <div>
-      <div class="section-tag">Lapisan Keamanan</div>
+      <div class="section-tag">Lapisan Security</div>
       <h2 class="section-title">Cryptography <em>Layer</em></h2>
     </div>
   </div>
@@ -1509,12 +1560,12 @@ footer::before{
 
   <div class="crypto-grid" style="margin-top:48px">
 
-    <div class="crypto-layer" style="--layer-color:#c8a454">
+    <div class="crypto-layer" style="--layer-color:#b300ff">
       <div class="crypto-layer-num"><span>LAYER 01</span></div>
       <div class="crypto-layer-icon">⬡</div>
       <div class="crypto-layer-title">Hashing</div>
       <div class="crypto-layer-desc">
-        Fungsi satu arah yang mengubah data apapun menjadi output fixed-length. SHA-256 menghasilkan 64 karakter hex — perubahan 1 bit input menghasilkan output yang sama sekali berbeda.
+        A one-way function that converts any data into a fixed-length output. SHA-256 produces 64 hexadecimal characters — changing one input bit creates a completely different output.
       </div>
       <div class="crypto-layer-code">
         INPUT: "hello world"<br>
@@ -1522,12 +1573,12 @@ footer::before{
       </div>
     </div>
 
-    <div class="crypto-layer" style="--layer-color:#31d4c4">
+    <div class="crypto-layer" style="--layer-color:#00f5ff">
       <div class="crypto-layer-num"><span>LAYER 02</span></div>
       <div class="crypto-layer-icon">🔑</div>
       <div class="crypto-layer-title">Digital Signature</div>
       <div class="crypto-layer-desc">
-        Private key untuk menandatangani, public key untuk verifikasi. Kamu bisa membuktikan kepemilikan tanpa mengungkapkan rahasia — inilah dasar dari wallet crypto.
+        A private key signs, a public key verifies. You can prove ownership without exposing the secret — this is the foundation of crypto wallets.
       </div>
       <div class="crypto-layer-code">
         SIGN(msg, privKey) → signature<br>
@@ -1535,12 +1586,12 @@ footer::before{
       </div>
     </div>
 
-    <div class="crypto-layer" style="--layer-color:#9d7dff">
+    <div class="crypto-layer" style="--layer-color:#8b5cf6">
       <div class="crypto-layer-num"><span>LAYER 03</span></div>
       <div class="crypto-layer-icon">🛡</div>
       <div class="crypto-layer-title">Multi-Layer Encryption</div>
       <div class="crypto-layer-desc">
-        Elliptic Curve Cryptography (secp256k1) + AES-256 + Merkle Tree. Setiap lapisan menambah kompleksitas yang secara eksponensial meningkatkan keamanan keseluruhan sistem.
+        Elliptic Curve Cryptography (secp256k1) + AES-256 + Merkle Tree. Every layer adds complexity that exponentially increases the security of the whole system.
       </div>
       <div class="crypto-layer-code">
         ECC → key pair<br>
@@ -1569,7 +1620,7 @@ footer::before{
     <div>
       <div class="philosophy-label">// Manifesto</div>
       <h2 class="philosophy-title">
-        Prinsip<br>yang <em>Bertahan</em>
+        Principles<br>that <em>Survive</em>
       </h2>
     </div>
     <div class="philosophy-pillars">
@@ -1577,9 +1628,9 @@ footer::before{
       <div class="pillar">
         <div class="pillar-num">01</div>
         <div>
-          <div class="pillar-title">Desentralisasi = Kebebasan</div>
+          <div class="pillar-title">Decentralization = Freedom</div>
           <p class="pillar-text">
-            Ketika tidak ada yang mengontrol, <em>semua orang setara</em>. Blockchain bukan teknologi — ini adalah pernyataan bahwa kekuasaan seharusnya terdistribusi, bukan terpusat. Setiap node adalah suara yang setara.
+            When nobody controls the system, <em>everyone becomes equal</em>. Blockchain is not only technology — it is a statement that power should be distributed, not centralized. Every node is an equal voice.
           </p>
         </div>
       </div>
@@ -1587,9 +1638,9 @@ footer::before{
       <div class="pillar">
         <div class="pillar-num">02</div>
         <div>
-          <div class="pillar-title">Trustless = Evolusi</div>
+          <div class="pillar-title">Trustless = Evolution</div>
           <p class="pillar-text">
-            Kita tidak butuh percaya pada entitas lain — <em>kita percaya pada matematika</em>. Smart contract tidak bisa berbohong. Code tidak bisa disuap. Ini bukan tentang tidak percaya; ini tentang melampaui kebutuhan akan kepercayaan.
+            We do not need to trust another entity — <em>we trust mathematics</em>. Smart contracts cannot lie. Code cannot be bribed. This is not about distrust; it is about moving beyond the need for trust.
           </p>
         </div>
       </div>
@@ -1597,9 +1648,9 @@ footer::before{
       <div class="pillar">
         <div class="pillar-num">03</div>
         <div>
-          <div class="pillar-title">Kompleksitas = Kekuatan</div>
+          <div class="pillar-title">Complexity = Strength</div>
           <p class="pillar-text">
-            Sistem paling tangguh lahir dari lapisan-lapisan yang saling mengunci. <em>Kriptografi, konsensus, ekonomi token</em> — bukan kelemahan karena rumit, melainkan kekuatan karena tidak bisa disederhanakan oleh musuh.
+            System paling tangguh lahir dari lapisan-lapisan yang saling mengunci. <em>Kriptografi, konsensus, ekonomi token</em> — bukan kelemahan karena rumit, melainkan kekuatan karena tidak bisa disederhanakan oleh musuh.
           </p>
         </div>
       </div>
@@ -1609,7 +1660,7 @@ footer::before{
 
   <div class="philosophy-footer">
     <span>ratonven</span>
-    // Edukasi Web3 untuk semua — dari yang bertanya sampai yang membangun.
+    // Web3 education for everyone — from the curious to the builders.
   </div>
 </section>
 
@@ -1621,57 +1672,57 @@ footer::before{
 <section id="ecosystem" class="ecosystem-section reveal">
   <div class="section-header">
     <div>
-      <div class="section-tag">Ekosistem Platform</div>
+      <div class="section-tag">Ecosystem Platform</div>
       <h2 class="section-title">ratonven <em>Ecosystem</em></h2>
     </div>
   </div>
 
   <div class="eco-grid">
 
-    <a href="https://t.me/Ravlabs" target="_blank" class="eco-node" style="--node-color:#31d4c4">
+    <a href="https://t.me/Ravlabs" target="_blank" class="eco-node" style="--node-color:#00f5ff">
       <div class="eco-node-glow"></div>
       <div class="eco-icon">✈</div>
       <div class="eco-platform">Telegram</div>
-      <div class="eco-role">Community hub utama — diskusi harian, alpha sharing, dan pengumuman terbaru.</div>
+      <div class="eco-role">Main community hub — daily discussions, alpha sharing, and latest announcements.</div>
       <div class="eco-link">t.me/Ravlabs →</div>
     </a>
 
-    <a href="https://discord.gg/ratonven" target="_blank" class="eco-node" style="--node-color:#9d7dff">
+    <a href="https://discord.gg/ratonven" target="_blank" class="eco-node" style="--node-color:#8b5cf6">
       <div class="eco-node-glow"></div>
       <div class="eco-icon">◈</div>
       <div class="eco-platform">Discord</div>
-      <div class="eco-role">Developer discussion, technical support, dan kolaborasi project Web3.</div>
+      <div class="eco-role">Developer discussion, technical support, and Web3 project collaboration.</div>
       <div class="eco-link">Discord →</div>
     </a>
 
-    <a href="https://twitter.com/ratonven" target="_blank" class="eco-node" style="--node-color:#edeae4">
+    <a href="https://twitter.com/ratonven" target="_blank" class="eco-node" style="--node-color:#f6eaff">
       <div class="eco-node-glow"></div>
       <div class="eco-icon">✕</div>
       <div class="eco-platform">Twitter / X</div>
-      <div class="eco-role">Public narrative — opini market, thread edukasi, dan insight crypto terkini.</div>
+      <div class="eco-role">Public narrative — market opinions, educational threads, and current crypto insights.</div>
       <div class="eco-link">@ratonven →</div>
     </a>
 
-    <a href="https://medium.com/@ratonven" target="_blank" class="eco-node" style="--node-color:#c8a454">
+    <a href="https://medium.com/@ratonven" target="_blank" class="eco-node" style="--node-color:#b300ff">
       <div class="eco-node-glow"></div>
       <div class="eco-icon">⬡</div>
       <div class="eco-platform">Blog</div>
-      <div class="eco-role">Knowledge archive — panduan mendalam, tutorial step-by-step, dan analisis.</div>
+      <div class="eco-role">Knowledge archive — deep guides, step-by-step tutorials, and analysis.</div>
       <div class="eco-link">Blog →</div>
     </a>
 
-    <a href="#perpustakaan" class="eco-node" style="--node-color:#f4765a;border-right:none">
+    <a href="#perpustakaan" class="eco-node" style="--node-color:#ff2bd6;border-right:none">
       <div class="eco-node-glow"></div>
       <div class="eco-icon">◉</div>
-      <div class="eco-platform">Perpustakaan</div>
-      <div class="eco-role">Central system — semua konten terstruktur di satu tempat. Ini yang sedang kamu baca.</div>
+      <div class="eco-platform">Library</div>
+      <div class="eco-role">Central system — all structured content in one place. This is the hub you are reading.</div>
       <div class="eco-link">Central Hub →</div>
     </a>
 
   </div>
 
   <p style="margin-top:20px;font-family:var(--mono);font-size:10px;color:var(--muted2);letter-spacing:0.1em;text-align:center">
-    // Semua platform terhubung dalam satu ekosistem edukasi
+    // Every platform is connected inside one education ecosystem
   </p>
 </section>
 
@@ -1685,7 +1736,7 @@ footer::before{
     <li><a href="https://twitter.com/ratonven" target="_blank">Twitter</a></li>
     <li><a href="https://medium.com/@ratonven" target="_blank">Blog</a></li>
   </ul>
-  <div class="footer-copy">© 2025 ratonven · Perpustakaan Digital Crypto</div>
+  <div class="footer-copy">© 2025 ratonven · Library Digital Crypto</div>
   <div class="footer-system">
     SYS v2.0 · ACTIVE<br>
     NODES: ONLINE
@@ -1702,16 +1753,16 @@ footer::before{
 const API_URL = 'https://script.google.com/macros/s/AKfycbwGmXeDIzQaj8GeRlBaa_-u5zieghc7HLCPaf6XqlxK69Suu_9DQCP1lsN9OYHYusUM/exec';
 
 const FALLBACK_KATEGORI = [
-  {id:'cat-001',nama:'Airdrop',icon:'🪂',deskripsi:'Hunting token gratis dari project crypto baru sebelum listing',warna:'#c8a454'},
-  {id:'cat-002',nama:'DeFi',icon:'🏦',deskripsi:'Decentralized Finance — yield farming, liquidity pool, lending',warna:'#31d4c4'},
-  {id:'cat-003',nama:'NFT',icon:'🎨',deskripsi:'Non-fungible token — minting, trading, dan passive royalty',warna:'#a78bfa'},
-  {id:'cat-004',nama:'Trading',icon:'📈',deskripsi:'Analisis teknikal, strategi spot dan futures, risk management',warna:'#50e887'},
-  {id:'cat-005',nama:'Web3 Dev',icon:'⚙️',deskripsi:'Smart contract Solidity, dApp development, blockchain tools',warna:'#f4765a'},
-  {id:'cat-006',nama:'Wallet & Security',icon:'🔐',deskripsi:'Cara aman kelola wallet crypto, hardware wallet, seed phrase',warna:'#60a5fa'},
+  {id:'cat-001',nama:'Airdrop',icon:'🪂',deskripsi:'Hunt free tokens from new crypto projects before listing',warna:'#b300ff'},
+  {id:'cat-002',nama:'DeFi',icon:'🏦',deskripsi:'Decentralized Finance — yield farming, liquidity pool, lending',warna:'#00f5ff'},
+  {id:'cat-003',nama:'NFT',icon:'🎨',deskripsi:'Non-fungible tokens — minting, trading, and passive royalties',warna:'#a78bfa'},
+  {id:'cat-004',nama:'Trading',icon:'📈',deskripsi:'Technical analysis, spot/futures strategies, and risk management',warna:'#39ff14'},
+  {id:'cat-005',nama:'Web3 Dev',icon:'⚙️',deskripsi:'Smart contract Solidity, dApp development, blockchain tools',warna:'#ff2bd6'},
+  {id:'cat-006',nama:'Wallet & Security',icon:'🔐',deskripsi:'Secure crypto wallet management, hardware wallets, and seed phrases',warna:'#00a3ff'},
 ];
 
 let allKonten = [];
-let allKategori = [];
+let allCategories = [];
 let isAPIConnected = false;
 
 /* ============================================================
@@ -1772,12 +1823,12 @@ async function fetchAPI(action, params = {}) {
 async function init() {
   const kategoriAPI = await fetchAPI('kategori');
   const kontenAPI   = await fetchAPI('konten', {limit:200});
-  if(kategoriAPI){ allKategori = kategoriAPI; isAPIConnected = true; }
-  else { allKategori = FALLBACK_KATEGORI; }
+  if(kategoriAPI){ allCategories = kategoriAPI; isAPIConnected = true; }
+  else { allCategories = FALLBACK_KATEGORI; }
   if(kontenAPI) allKonten = kontenAPI;
 
   document.getElementById('stat-artikel').textContent  = allKonten.length || '—';
-  document.getElementById('stat-kategori').textContent = allKategori.length;
+  document.getElementById('stat-kategori').textContent = allCategories.length;
 
   showRak();
   loadFeatured();
@@ -1791,11 +1842,11 @@ function showRak() {
   document.getElementById('buku-grid').style.display = 'none';
   document.getElementById('back-btn').style.display  = 'none';
   document.getElementById('breadcrumb').classList.remove('visible');
-  document.getElementById('section-tag-text').textContent   = 'Semua Kategori';
-  document.getElementById('section-title-text').innerHTML   = 'Pilih <em>Rak</em>';
+  document.getElementById('section-tag-text').textContent   = 'Semua Categories';
+  document.getElementById('section-title-text').innerHTML   = 'Choose a <em>Shelf</em>';
 
   const grid = document.getElementById('rak-grid');
-  grid.innerHTML = allKategori.map((rak, i) => {
+  grid.innerHTML = allCategories.map((rak, i) => {
     const count = allKonten.filter(k => k.rak === rak.nama).length;
     return `
       <div class="rak-card fade-in" style="--accent-color:${rak.warna};animation-delay:${i*0.06}s"
@@ -1819,11 +1870,11 @@ async function showBuku(rakNama) {
   document.getElementById('back-btn').style.display  = 'block';
   document.getElementById('breadcrumb').classList.add('visible');
   document.getElementById('bc-rak').textContent             = rakNama;
-  document.getElementById('section-tag-text').textContent   = 'Rak → ' + rakNama;
+  document.getElementById('section-tag-text').textContent   = 'Shelf → ' + rakNama;
   document.getElementById('section-title-text').innerHTML   = `Panduan <em>${rakNama}</em>`;
 
   const grid = document.getElementById('buku-grid');
-  grid.innerHTML = `<div class="loading-state"><div class="loading-dots"><span></span><span></span><span></span></div><div class="loading-text">Membuka rak...</div></div>`;
+  grid.innerHTML = `<div class="loading-state"><div class="loading-dots"><span></span><span></span><span></span></div><div class="loading-text">Opening shelf...</div></div>`;
 
   let konten = allKonten.filter(k => k.rak === rakNama);
   if(isAPIConnected && konten.length === 0){
@@ -1835,10 +1886,10 @@ async function showBuku(rakNama) {
     grid.innerHTML = `
       <div class="empty-state">
         <div style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:12px">
-          Konten untuk kategori ini sedang disiapkan
+          Content for this category is being prepared
         </div>
         <a onclick="showRak()" style="font-family:var(--mono);font-size:11px;color:var(--gold);cursor:pointer">
-          ← Kembali ke semua kategori
+          ← Back ke semua kategori
         </a>
       </div>`;
     return;
@@ -1853,7 +1904,7 @@ async function showBuku(rakNama) {
       <div class="buku-meta">
         <span class="badge badge-level">${b.level||'beginner'}</span>
         ${b.reward?`<span class="badge badge-reward">${b.reward}</span>`:''}
-        ${b.deadline?`<span class="badge badge-deadline">s/d ${b.deadline}</span>`:''}
+        ${b.deadline?`<span class="badge badge-deadline">until ${b.deadline}</span>`:''}
       </div>
     </a>`).join('');
 
@@ -1863,7 +1914,7 @@ async function showBuku(rakNama) {
 /* ============================================================
    FEATURED
    ============================================================ */
-const CARD_ACCENTS = ['#c8a454','#31d4c4','#9d7dff','#50e887','#f4765a'];
+const CARD_ACCENTS = ['#b300ff','#00f5ff','#8b5cf6','#39ff14','#ff2bd6'];
 
 async function loadFeatured() {
   let featured = allKonten.filter(k => k.featured==='TRUE'||k.featured===true);
@@ -1876,7 +1927,7 @@ async function loadFeatured() {
   document.getElementById('featured-section').style.display='block';
 
   const countEl = document.getElementById('featured-count');
-  if(countEl) countEl.textContent = `${featured.length} artikel pilihan`;
+  if(countEl) countEl.textContent = `${featured.length} featured articles`;
 
   const grid = document.getElementById('featured-grid');
   const items = featured.slice(0,3);
