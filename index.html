@@ -3,29 +3,1756 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ratonven Hub Test API</title>
+  <meta name="description" content="Ratonven Hub adalah landing page kurasi Web3, AI, Tech, berita, database konten, roadmap Web3 income, dan edukasi digital." />
+  <meta name="theme-color" content="#080b12" />
+
+  <title>Ratonven Hub — Web3, AI, Tech & Digital Knowledge</title>
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --bg-soft: #0b1020;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-solid: #101827;
+      --border: rgba(148, 163, 184, 0.18);
+      --border-strong: rgba(56, 189, 248, 0.32);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --muted-2: #64748b;
+      --cyan: #22d3ee;
+      --blue: #38bdf8;
+      --purple: #a78bfa;
+      --green: #34d399;
+      --yellow: #fbbf24;
+      --pink: #f472b6;
+      --danger: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1240px;
+      --nav-height: 74px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(34, 211, 238, 0.18), transparent 34%),
+        radial-gradient(circle at 85% 12%, rgba(167, 139, 250, 0.18), transparent 32%),
+        radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.09), transparent 34%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 88%);
+      z-index: -2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.44));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      background: rgba(7, 10, 18, 0.78);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background:
+        linear-gradient(135deg, rgba(34, 211, 238, .24), rgba(167, 139, 250, .2)),
+        rgba(15, 23, 42, .88);
+      border: 1px solid rgba(34, 211, 238, .28);
+      box-shadow: 0 0 34px rgba(34, 211, 238, .16);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .brand-text {
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: .08em;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      border: 1px solid rgba(148, 163, 184, .12);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, .38);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .88rem;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(148, 163, 184, .12);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(34,211,238,.95), rgba(167,139,250,.9));
+      color: #041018;
+      font-weight: 800;
+      box-shadow: 0 16px 38px rgba(34,211,238,.18);
+    }
+
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(15, 23, 42, .68);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      left: 18px;
+      right: 18px;
+      top: calc(var(--nav-height) + 10px);
+      z-index: 60;
+      padding: 12px;
+      border-radius: 22px;
+      background: rgba(15, 23, 42, .94);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu.show {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-menu a {
+      padding: 13px 14px;
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgba(148, 163, 184, .06);
+    }
+
+    .hero {
+      padding: 70px 0 34px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -80px;
+      top: -110px;
+      background: radial-gradient(circle, rgba(34, 211, 238, .2), transparent 64%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, .24);
+      color: #b6f3ff;
+      background: rgba(34, 211, 238, .08);
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 5.2rem);
+      line-height: .96;
+      letter-spacing: -0.07em;
+    }
+
+    .grad {
+      background: linear-gradient(135deg, var(--cyan), var(--purple), var(--green));
+      background-size: 180% 180%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy p {
+      max-width: 780px;
+      margin: 22px 0 0;
+      color: #cbd5e1;
+      font-size: clamp(1rem, 1.8vw, 1.22rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 850;
+      transition: .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #041018;
+      box-shadow: 0 18px 42px rgba(34, 211, 238, .16);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(148, 163, 184, .10);
+      border: 1px solid rgba(148, 163, 184, .16);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 390px;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 62% 24%, rgba(34, 211, 238, .2), transparent 35%),
+        radial-gradient(circle at 30% 70%, rgba(167, 139, 250, .18), transparent 42%);
+      pointer-events: none;
+    }
+
+    .system-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 14px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .flow-box {
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, .72);
+      border: 1px solid rgba(148, 163, 184, .16);
+    }
+
+    .flow-box small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .arrow {
+      color: var(--cyan);
+      opacity: .8;
+      font-weight: 900;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, .44);
+      border: 1px solid rgba(148, 163, 184, .13);
+    }
+
+    .mini-card b {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.5;
+    }
+
+    .control-panel {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, .58);
+      backdrop-filter: blur(18px);
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      height: 52px;
+      border: 1px solid rgba(148, 163, 184, .18);
+      border-radius: 18px;
+      background: rgba(2, 6, 23, .52);
+      color: var(--text);
+      outline: none;
+      padding: 0 16px 0 46px;
+    }
+
+    .search-wrap input:focus {
+      border-color: rgba(34, 211, 238, .46);
+      box-shadow: 0 0 0 4px rgba(34, 211, 238, .08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    .select {
+      height: 52px;
+      border: 1px solid rgba(148, 163, 184, .18);
+      border-radius: 18px;
+      background: rgba(2, 6, 23, .62);
+      color: var(--text);
+      outline: none;
+      padding: 0 14px;
+      min-width: 190px;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 14px 2px 2px;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      border: 1px solid rgba(148, 163, 184, .16);
+      color: #dbeafe;
+      background: rgba(148, 163, 184, .08);
+      padding: 9px 13px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: .88rem;
+      transition: .2s ease;
+    }
+
+    .chip:hover,
+    .chip.active {
+      color: #031018;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      border-color: transparent;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, .38);
+      border: 1px solid rgba(148, 163, 184, .12);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: .82rem;
+      margin-top: 3px;
+    }
+
+    section {
+      padding: 34px 0;
+      scroll-margin-top: calc(var(--nav-height) + 18px);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.045em;
+    }
+
+    .section-head p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 720px;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 11px;
+      color: #b6f3ff;
+      background: rgba(34, 211, 238, .08);
+      border: 1px solid rgba(34, 211, 238, .2);
+      font-size: .82rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.featured {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.compact {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .content-card {
+      position: relative;
+      min-height: 100%;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(15, 23, 42, .84), rgba(15, 23, 42, .45));
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .25);
+      transition: .24s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 211, 238, .36);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .34);
+    }
+
+    .thumb {
+      position: relative;
+      height: 178px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(34,211,238,.36), transparent 35%),
+        radial-gradient(circle at 78% 24%, rgba(167,139,250,.30), transparent 36%),
+        linear-gradient(135deg, rgba(15,23,42,.86), rgba(2,6,23,.82));
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: .9;
+    }
+
+    .thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: rgba(248, 250, 252, .86);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      font-size: 1.05rem;
+      text-align: center;
+      padding: 18px;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .10);
+      color: #dbeafe;
+      border: 1px solid rgba(148, 163, 184, .12);
+      font-size: .74rem;
+      font-weight: 750;
+    }
+
+    .tag.income {
+      color: #fff7ed;
+      background: rgba(251, 191, 36, .12);
+      border-color: rgba(251, 191, 36, .26);
+    }
+
+    .tag.featured-badge {
+      color: #ecfeff;
+      background: rgba(34, 211, 238, .11);
+      border-color: rgba(34, 211, 238, .26);
+    }
+
+    .tag.affiliate {
+      color: #fdf2f8;
+      background: rgba(244, 114, 182, .12);
+      border-color: rgba(244, 114, 182, .24);
+    }
+
+    .content-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .content-card.featured-card h3 {
+      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+    }
+
+    .desc {
+      color: var(--muted);
+      margin: 10px 0 0;
+      line-height: 1.62;
+      font-size: .93rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 17px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, .12);
+    }
+
+    .date {
+      color: var(--muted-2);
+      font-size: .8rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #b6f3ff;
+      font-weight: 850;
+      font-size: .86rem;
+      white-space: nowrap;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .roadmap-panel {
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(251, 191, 36, .24);
+      background:
+        radial-gradient(circle at 24% 20%, rgba(251, 191, 36, .16), transparent 28%),
+        linear-gradient(145deg, rgba(15,23,42,.82), rgba(15,23,42,.46));
+      box-shadow: var(--shadow);
+    }
+
+    .roadmap-panel h3 {
+      margin: 0;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      letter-spacing: -0.05em;
+    }
+
+    .roadmap-panel p {
+      color: #d1d5db;
+      line-height: 1.7;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, .42);
+      border: 1px solid rgba(148, 163, 184, .12);
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(251,191,36,.92), rgba(34,211,238,.85));
+      color: #061018;
+      font-weight: 900;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    .empty {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, .26);
+      color: var(--muted);
+      background: rgba(15, 23, 42, .34);
+      line-height: 1.65;
+    }
+
+    .status-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, .68);
+      border: 1px solid rgba(148, 163, 184, .16);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .status-box.error {
+      color: #ffe4e6;
+      border-color: rgba(251, 113, 133, .32);
+      background: rgba(127, 29, 29, .18);
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 34px 0 98px;
+      border-top: 1px solid rgba(148, 163, 184, .12);
+      background: rgba(2, 6, 23, .20);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr 1fr;
+      gap: 20px;
+    }
+
+    .footer h4 {
+      margin: 0 0 10px;
+    }
+
+    .footer p,
+    .footer a,
+    .footer li {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .92rem;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .disclaimer {
+      margin-top: 22px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(251, 191, 36, .20);
+      background: rgba(251, 191, 36, .06);
+      color: #fde68a;
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 55;
+      display: none;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      padding: 8px;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, .16);
+      background: rgba(7, 10, 18, .86);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .bottom-nav a {
+      display: grid;
+      justify-items: center;
+      gap: 4px;
+      padding: 8px 4px;
+      border-radius: 15px;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .bottom-nav a:hover,
+    .bottom-nav a.active {
+      color: var(--cyan);
+      background: rgba(34, 211, 238, .08);
+    }
+
+    .loader {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(148,163,184,.25);
+      border-top-color: var(--cyan);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .roadmap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid.cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.compact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-panel {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 820px) {
+      :root {
+        --nav-height: 66px;
+      }
+
+      .shell {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .hero {
+        padding: 34px 0 24px;
+      }
+
+      .hero-copy {
+        padding: 24px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .select {
+        width: 100%;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: grid;
+        align-items: start;
+      }
+
+      .grid.featured,
+      .grid.cards,
+      .grid.compact {
+        grid-template-columns: 1fr;
+      }
+
+      .thumb {
+        height: 164px;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+        justify-self: center;
+      }
+
+      .bottom-nav {
+        display: grid;
+      }
+
+      .footer {
+        padding-bottom: 110px;
+      }
+    }
+  </style>
 </head>
-<body style="background:#080b12;color:white;font-family:Arial;padding:30px;">
 
-  <h1>Ratonven Hub API Test</h1>
-  <p>Data dari Google Sheet akan tampil di bawah ini:</p>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Ratonven Hub">
+        <span class="brand-mark">R</span>
+        <span class="brand-text">
+          <strong>RATONVEN HUB</strong>
+          <span>Web3 · AI · Tech · Income</span>
+        </span>
+      </a>
 
-  <pre id="output">Loading...</pre>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#featured">Featured</a>
+        <a href="#global">Global</a>
+        <a href="#database">Database</a>
+        <a href="#income">Web3 Income</a>
+        <a href="#latest">Latest</a>
+      </nav>
+
+      <a class="nav-cta" href="#explore">Mulai Eksplorasi →</a>
+
+      <button class="hamburger" id="menuBtn" aria-label="Buka menu">☰</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+      <a href="#featured">Featured</a>
+      <a href="#global">Daily Global Update</a>
+      <a href="#database">Database Indonesia</a>
+      <a href="#income">Web3 Income Roadmap</a>
+      <a href="#latest">Latest Content</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy glass">
+          <div class="eyebrow">✦ Google Sheet CMS → Apps Script JSON → GitHub Pages</div>
+          <h1>Kurasi Konten <span class="grad">Web3, AI & Tech</span></h1>
+          <p>
+            Ratonven Hub adalah pusat navigasi edukasi, insight, database konten Indonesia,
+            update global, affiliate picks, dan roadmap Web3 Income dari nol menuju builder/developer.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#explore">Cari Konten</a>
+            <a class="btn btn-secondary" href="#income">Lihat Roadmap Web3</a>
+            <a class="btn btn-secondary" href="#database">Buka Database Indonesia</a>
+          </div>
+
+          <div id="apiStatus" class="status-box">
+            <span class="loader"><span class="spinner"></span> Menghubungkan ke Google Sheet...</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel glass" aria-label="Sistem kerja Ratonven Hub">
+          <div class="system-card">
+            <div class="flow-row">
+              <div class="flow-box">
+                <b>Google Sheet</b>
+                <small>CMS input konten</small>
+              </div>
+              <div class="arrow">→</div>
+              <div class="flow-box">
+                <b>Apps Script</b>
+                <small>JSON API</small>
+              </div>
+            </div>
+
+            <div class="flow-row">
+              <div class="flow-box">
+                <b>GitHub Pages</b>
+                <small>Landing page publik</small>
+              </div>
+              <div class="arrow">→</div>
+              <div class="flow-box">
+                <b>Pengunjung</b>
+                <small>Belajar, klik, eksplorasi</small>
+              </div>
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini-card">
+                <b>Database Indonesia</b>
+                <span>Blogger untuk artikel panjang, tutorial, dan modul lokal.</span>
+              </div>
+              <div class="mini-card">
+                <b>Daily Global Update</b>
+                <span>Medium, Substack, Mirror, X, dan platform global.</span>
+              </div>
+              <div class="mini-card">
+                <b>Web3 Income</b>
+                <span>Airdrop, testnet, komunitas, freelance, dan build project.</span>
+              </div>
+              <div class="mini-card">
+                <b>Monetisasi</b>
+                <span>Affiliate, produk digital, sponsor, tools, dan komunitas.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="shell control-panel" id="explore">
+        <div class="search-row">
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" type="search" placeholder="Cari konten, topik, platform, tag, roadmap, affiliate, airdrop..." autocomplete="off" />
+          </div>
+
+          <select class="select" id="sortSelect" aria-label="Urutkan konten">
+            <option value="newest">Terbaru</option>
+            <option value="priority">Prioritas</option>
+            <option value="featured">Featured</option>
+            <option value="income">Web3 Income</option>
+          </select>
+        </div>
+
+        <div class="chip-row" id="filterChips" aria-label="Filter kategori">
+          <button class="chip active" data-filter="all">Semua</button>
+          <button class="chip" data-filter="Web3">Web3</button>
+          <button class="chip" data-filter="AI">AI</button>
+          <button class="chip" data-filter="Tech">Tech</button>
+          <button class="chip" data-filter="Berita">Berita</button>
+          <button class="chip" data-filter="Tips & Trik">Tips & Trik</button>
+          <button class="chip" data-filter="Upskill">Upskill</button>
+          <button class="chip" data-filter="Web3 Income">Web3 Income</button>
+          <button class="chip" data-filter="Affiliate">Affiliate</button>
+          <button class="chip" data-filter="Blogger Indonesia">Blogger Indonesia</button>
+          <button class="chip" data-filter="Platform Global">Platform Global</button>
+        </div>
+
+        <div class="stats" aria-label="Statistik konten">
+          <div class="stat"><b id="statTotal">0</b><span>Total Published</span></div>
+          <div class="stat"><b id="statFeatured">0</b><span>Featured</span></div>
+          <div class="stat"><b id="statIncome">0</b><span>Web3 Income</span></div>
+          <div class="stat"><b id="statAffiliate">0</b><span>Affiliate Picks</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Featured Content</h2>
+            <p>Konten pilihan yang diprioritaskan dari Google Sheet. Atur lewat kolom <b>is_featured = TRUE</b>.</p>
+          </div>
+          <span class="section-badge">✦ Prioritas Utama</span>
+        </div>
+        <div class="grid featured" id="featuredGrid"></div>
+      </div>
+    </section>
+
+    <section id="global">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Daily Global Update</h2>
+            <p>Konten harian/global dari Medium, Substack, Mirror, X, atau platform luar lain.</p>
+          </div>
+          <span class="section-badge">↗ Global Feed</span>
+        </div>
+        <div class="grid cards" id="globalGrid"></div>
+      </div>
+    </section>
+
+    <section id="database">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Database Indonesia</h2>
+            <p>Blogger menjadi database artikel panjang Bahasa Indonesia: tutorial, modul, catatan, dan panduan.</p>
+          </div>
+          <span class="section-badge">▣ Blogger Database</span>
+        </div>
+        <div class="grid cards" id="databaseGrid"></div>
+      </div>
+    </section>
+
+    <section id="income">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Web3 Income Roadmap</h2>
+            <p>Kategori edukasi peluang Web3: dari pemula, airdrop, komunitas, skill, kontribusi, sampai developer.</p>
+          </div>
+          <span class="section-badge">◎ Dari Nol ke Developer</span>
+        </div>
+
+        <div class="roadmap">
+          <div class="roadmap-panel">
+            <h3>Skill → Kontribusi → Income</h3>
+            <p>
+              Bagian ini bukan janji cepat kaya. Ini jalur belajar bertahap:
+              pahami dasar Web3, bangun kebiasaan riset, ikut ekosistem, buat konten,
+              kontribusi, lalu mulai build project.
+            </p>
+            <a class="btn btn-primary" href="#incomeGrid">Lihat Konten Income →</a>
+          </div>
+
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><div><b>Dasar Web3</b><span>Wallet, blockchain, keamanan, istilah, dan ekosistem.</span></div></div>
+            <div class="step"><span class="step-num">2</span><div><b>Airdrop & Testnet</b><span>Quest, campaign, testnet, Galxe, Zealy, Layer3, dan aktivitas on-chain.</span></div></div>
+            <div class="step"><span class="step-num">3</span><div><b>Konten & Komunitas</b><span>Thread, artikel, edukasi, komunitas, moderator, dan ambassador.</span></div></div>
+            <div class="step"><span class="step-num">4</span><div><b>Builder / Developer</b><span>GitHub, HTML/CSS/JS, API, dashboard, smart contract basic, dan mini dApp.</span></div></div>
+          </div>
+        </div>
+
+        <div class="grid cards" id="incomeGrid" style="margin-top:18px;"></div>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>AI Tools</h2>
+            <p>Kurasi tools AI, workflow produktivitas, otomatisasi, dan resource untuk konten maupun riset.</p>
+          </div>
+          <span class="section-badge">⌁ AI Workflow</span>
+        </div>
+        <div class="grid compact" id="aiGrid"></div>
+      </div>
+    </section>
+
+    <section id="affiliate">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Affiliate Picks</h2>
+            <p>Rekomendasi tools, platform, resource, dan link monetisasi yang tetap relevan dengan edukasi.</p>
+          </div>
+          <span class="section-badge">◆ Monetisasi</span>
+        </div>
+        <div class="grid compact" id="affiliateGrid"></div>
+      </div>
+    </section>
+
+    <section id="latest">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Latest Content</h2>
+            <p>Semua konten berstatus Published dari Google Sheet, mengikuti search, filter, dan sorting.</p>
+          </div>
+          <span class="section-badge">◷ Auto Update</span>
+        </div>
+        <div class="grid cards" id="latestGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div>
+        <div class="brand">
+          <span class="brand-mark">R</span>
+          <span class="brand-text">
+            <strong>RATONVEN HUB</strong>
+            <span>Digital knowledge portal</span>
+          </span>
+        </div>
+        <p>
+          Landing page kurasi untuk Web3, AI, Tech, database konten Indonesia,
+          update global, dan roadmap income berbasis skill digital.
+        </p>
+      </div>
+
+      <div>
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#global">Global Update</a></li>
+          <li><a href="#database">Database Indonesia</a></li>
+          <li><a href="#income">Web3 Income</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Kategori</h4>
+        <ul>
+          <li>Web3</li>
+          <li>AI Tools</li>
+          <li>Tech News</li>
+          <li>Tips & Trik</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Disclaimer</h4>
+        <p>
+          Konten Web3, crypto, affiliate, dan income bersifat edukasi dan kurasi.
+          Bukan nasihat finansial. Selalu riset mandiri sebelum mengambil keputusan.
+        </p>
+      </div>
+    </div>
+
+    <div class="shell disclaimer">
+      Sistem: Google Sheet CMS → Apps Script JSON API → GitHub Pages. Update konten cukup dari Google Sheet.
+    </div>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Navigasi bawah mobile">
+    <a href="#top" class="active">⌂<span>Home</span></a>
+    <a href="#explore">⌕<span>Cari</span></a>
+    <a href="#database">▣<span>DB</span></a>
+    <a href="#income">◎<span>Income</span></a>
+    <a href="#latest">◷<span>Latest</span></a>
+  </nav>
 
   <script>
     const API_URL = "https://script.google.com/macros/s/AKfycbymQPVQY2c2J6GYvQgkUPpOAyfor6oUb0Icgo5km-vaciBgjOlFAMxRfsfSuCQ_-NjLPw/exec";
 
-    fetch(API_URL)
-      .then(response => response.json())
-      .then(result => {
-        document.getElementById("output").textContent =
-          JSON.stringify(result, null, 2);
-      })
-      .catch(error => {
-        document.getElementById("output").textContent =
-          "Gagal mengambil data: " + error.message;
-      });
-  </script>
+    const state = {
+      all: [],
+      filtered: [],
+      activeFilter: "all",
+      query: "",
+      sort: "newest",
+      loaded: false
+    };
 
+    const fallbackData = [];
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const els = {
+      status: $("#apiStatus"),
+      search: $("#searchInput"),
+      sort: $("#sortSelect"),
+      chips: $("#filterChips"),
+      featured: $("#featuredGrid"),
+      global: $("#globalGrid"),
+      database: $("#databaseGrid"),
+      income: $("#incomeGrid"),
+      ai: $("#aiGrid"),
+      affiliate: $("#affiliateGrid"),
+      latest: $("#latestGrid"),
+      statTotal: $("#statTotal"),
+      statFeatured: $("#statFeatured"),
+      statIncome: $("#statIncome"),
+      statAffiliate: $("#statAffiliate"),
+      menuBtn: $("#menuBtn"),
+      mobileMenu: $("#mobileMenu")
+    };
+
+    document.addEventListener("DOMContentLoaded", init);
+
+    function init() {
+      bindEvents();
+      loadContent();
+    }
+
+    function bindEvents() {
+      els.search.addEventListener("input", (event) => {
+        state.query = event.target.value.trim().toLowerCase();
+        applyFilters();
+      });
+
+      els.sort.addEventListener("change", (event) => {
+        state.sort = event.target.value;
+        applyFilters();
+      });
+
+      els.chips.addEventListener("click", (event) => {
+        const button = event.target.closest(".chip");
+        if (!button) return;
+
+        state.activeFilter = button.dataset.filter || "all";
+
+        document.querySelectorAll(".chip").forEach(chip => chip.classList.remove("active"));
+        button.classList.add("active");
+
+        applyFilters();
+      });
+
+      els.menuBtn.addEventListener("click", () => {
+        els.mobileMenu.classList.toggle("show");
+      });
+
+      els.mobileMenu.addEventListener("click", (event) => {
+        if (event.target.tagName === "A") {
+          els.mobileMenu.classList.remove("show");
+        }
+      });
+    }
+
+    async function loadContent() {
+      try {
+        const response = await fetch(API_URL, { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status + " saat membaca Apps Script");
+        }
+
+        const result = await response.json();
+
+        if (!result || result.success === false) {
+          throw new Error(result?.message || "Format JSON tidak valid");
+        }
+
+        const rows = Array.isArray(result.data) ? result.data : [];
+        state.all = rows.map(normalizeItem).filter(item => item.status.toLowerCase() === "published");
+
+        state.loaded = true;
+        updateStatus(false, `Terhubung ke Google Sheet. ${state.all.length} konten Published berhasil dibaca.`);
+        buildDynamicChips(state.all);
+        applyFilters();
+
+      } catch (error) {
+        state.all = fallbackData;
+        state.loaded = false;
+        updateStatus(true, "Gagal membaca Google Sheet: " + error.message + ". Cek URL Apps Script, akses Anyone, nama sheet CONTENT, dan header kolom.");
+        applyFilters();
+      }
+    }
+
+    function normalizeItem(item) {
+      const tags = Array.isArray(item.tags)
+        ? item.tags
+        : String(item.tags || "").split(",").map(tag => tag.trim()).filter(Boolean);
+
+      return {
+        id: clean(item.id),
+        title: clean(item.title) || "Tanpa Judul",
+        description: clean(item.description),
+        category: clean(item.category) || "Random",
+        sub_category: clean(item.sub_category),
+        tags,
+        platform: clean(item.platform),
+        source_type: clean(item.source_type),
+        language: clean(item.language),
+        content_type: clean(item.content_type),
+        level: clean(item.level),
+        main_url: clean(item.main_url),
+        affiliate_url: clean(item.affiliate_url),
+        thumbnail_url: clean(item.thumbnail_url),
+        status: clean(item.status) || "Published",
+        priority: clean(item.priority) || "Medium",
+        is_featured: toBool(item.is_featured),
+        is_trending: toBool(item.is_trending),
+        is_income: toBool(item.is_income),
+        monetization_type: clean(item.monetization_type),
+        cta_text: clean(item.cta_text) || "Buka Konten",
+        published_date: clean(item.published_date),
+        updated_date: clean(item.updated_date),
+        author_note: clean(item.author_note)
+      };
+    }
+
+    function clean(value) {
+      if (value === null || value === undefined) return "";
+      return String(value).trim();
+    }
+
+    function toBool(value) {
+      if (typeof value === "boolean") return value;
+      return String(value).trim().toLowerCase() === "true";
+    }
+
+    function updateStatus(isError, message) {
+      els.status.className = "status-box" + (isError ? " error" : "");
+      els.status.textContent = message;
+    }
+
+    function buildDynamicChips(items) {
+      const protectedFilters = [
+        "all",
+        "Web3",
+        "AI",
+        "Tech",
+        "Berita",
+        "Tips & Trik",
+        "Upskill",
+        "Web3 Income",
+        "Affiliate",
+        "Blogger Indonesia",
+        "Platform Global"
+      ];
+
+      const categories = [...new Set(items.map(item => item.category).filter(Boolean))]
+        .filter(cat => !protectedFilters.includes(cat))
+        .slice(0, 12);
+
+      categories.forEach(category => {
+        const btn = document.createElement("button");
+        btn.className = "chip";
+        btn.dataset.filter = category;
+        btn.textContent = category;
+        els.chips.appendChild(btn);
+      });
+    }
+
+    function applyFilters() {
+      const query = state.query;
+      const filter = state.activeFilter;
+
+      state.filtered = state.all.filter(item => {
+        const matchesSearch = !query || searchableText(item).includes(query);
+        const matchesFilter = filter === "all" || matchFilter(item, filter);
+        return matchesSearch && matchesFilter;
+      });
+
+      state.filtered = sortItems(state.filtered, state.sort);
+
+      renderAllSections();
+      updateStats();
+    }
+
+    function searchableText(item) {
+      return [
+        item.title,
+        item.description,
+        item.category,
+        item.sub_category,
+        item.platform,
+        item.source_type,
+        item.language,
+        item.content_type,
+        item.level,
+        item.monetization_type,
+        item.tags.join(" ")
+      ].join(" ").toLowerCase();
+    }
+
+    function matchFilter(item, filter) {
+      if (filter === "Blogger Indonesia") {
+        return isDatabaseIndonesia(item);
+      }
+
+      if (filter === "Platform Global") {
+        return isGlobalUpdate(item);
+      }
+
+      if (filter === "Affiliate") {
+        return isAffiliate(item);
+      }
+
+      if (filter === "Web3 Income") {
+        return isIncome(item);
+      }
+
+      return [
+        item.category,
+        item.sub_category,
+        item.platform,
+        item.source_type,
+        item.content_type,
+        item.monetization_type,
+        ...item.tags
+      ].some(value => String(value).toLowerCase() === filter.toLowerCase());
+    }
+
+    function sortItems(items, mode) {
+      const priorityValue = { High: 3, Medium: 2, Low: 1 };
+
+      return [...items].sort((a, b) => {
+        if (mode === "featured") {
+          return Number(b.is_featured) - Number(a.is_featured) || newestFirst(a, b);
+        }
+
+        if (mode === "income") {
+          return Number(isIncome(b)) - Number(isIncome(a)) || newestFirst(a, b);
+        }
+
+        if (mode === "priority") {
+          return (priorityValue[b.priority] || 0) - (priorityValue[a.priority] || 0) || newestFirst(a, b);
+        }
+
+        return newestFirst(a, b);
+      });
+    }
+
+    function newestFirst(a, b) {
+      return parseDate(b.published_date) - parseDate(a.published_date);
+    }
+
+    function parseDate(value) {
+      const time = Date.parse(value || "");
+      return Number.isFinite(time) ? time : 0;
+    }
+
+    function renderAllSections() {
+      const items = state.filtered;
+
+      renderGrid(els.featured, items.filter(item => item.is_featured).slice(0, 4), {
+        featured: true,
+        empty: "Belum ada Featured Content. Di Google Sheet, set is_featured = TRUE dan status = Published."
+      });
+
+      renderGrid(els.global, items.filter(isGlobalUpdate).slice(0, 6), {
+        empty: "Belum ada Daily Global Update. Gunakan source_type = Global Update untuk Medium/Substack/Mirror/platform luar."
+      });
+
+      renderGrid(els.database, items.filter(isDatabaseIndonesia).slice(0, 6), {
+        empty: "Belum ada Database Indonesia. Gunakan platform = Blogger, source_type = Local Database, language = ID."
+      });
+
+      renderGrid(els.income, items.filter(isIncome).slice(0, 6), {
+        empty: "Belum ada konten Web3 Income. Gunakan category = Web3 Income atau is_income = TRUE."
+      });
+
+      renderGrid(els.ai, items.filter(isAI).slice(0, 4), {
+        compact: true,
+        empty: "Belum ada AI Tools. Gunakan category = AI atau sub_category = AI Tools."
+      });
+
+      renderGrid(els.affiliate, items.filter(isAffiliate).slice(0, 4), {
+        compact: true,
+        empty: "Belum ada Affiliate Picks. Isi affiliate_url atau monetization_type = Affiliate."
+      });
+
+      renderGrid(els.latest, items.slice(0, 12), {
+        empty: state.all.length
+          ? "Tidak ada konten yang cocok dengan search/filter aktif."
+          : "Belum ada data Published dari Google Sheet."
+      });
+    }
+
+    function renderGrid(container, items, options = {}) {
+      if (!items.length) {
+        container.innerHTML = `<div class="empty">${escapeHTML(options.empty || "Belum ada konten.")}</div>`;
+        return;
+      }
+
+      container.innerHTML = items.map(item => renderCard(item, options)).join("");
+    }
+
+    function renderCard(item, options = {}) {
+      const url = item.affiliate_url && isAffiliate(item) ? item.affiliate_url : item.main_url;
+      const safeUrl = isSafeUrl(url) ? url : "#";
+      const cardClass = options.featured ? "content-card featured-card" : "content-card";
+      const externalAttr = safeUrl === "#" ? "" : ' target="_blank" rel="noopener noreferrer"';
+      const cta = item.cta_text || "Buka Konten";
+
+      const badges = [
+        `<span class="tag">${escapeHTML(item.category)}</span>`,
+        item.platform ? `<span class="tag">${escapeHTML(item.platform)}</span>` : "",
+        item.level ? `<span class="tag">${escapeHTML(item.level)}</span>` : "",
+        item.is_featured ? `<span class="tag featured-badge">Featured</span>` : "",
+        item.is_trending ? `<span class="tag">Trending</span>` : "",
+        isIncome(item) ? `<span class="tag income">Web3 Income</span>` : "",
+        isAffiliate(item) ? `<span class="tag affiliate">Affiliate</span>` : ""
+      ].filter(Boolean).join("");
+
+      return `
+        <article class="${cardClass}">
+          <a href="${escapeAttr(safeUrl)}"${externalAttr} aria-label="${escapeAttr(item.title)}">
+            <div class="thumb">
+              ${renderThumbnail(item)}
+            </div>
+          </a>
+
+          <div class="card-body">
+            <div class="meta">${badges}</div>
+            <h3>${escapeHTML(item.title)}</h3>
+            <p class="desc">${escapeHTML(item.description || "Konten kurasi dari Ratonven Hub.")}</p>
+
+            <div class="card-footer">
+              <span class="date">${formatCardDate(item.published_date)}${item.source_type ? " · " + escapeHTML(item.source_type) : ""}</span>
+              <a class="card-link" href="${escapeAttr(safeUrl)}"${externalAttr}>${escapeHTML(cta)} →</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderThumbnail(item) {
+      if (item.thumbnail_url && isSafeUrl(item.thumbnail_url)) {
+        return `<img src="${escapeAttr(item.thumbnail_url)}" alt="${escapeAttr(item.title)}" loading="lazy" onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;thumb-placeholder&quot;>${escapeAttr(item.category)}<br>${escapeAttr(item.platform || "Ratonven Hub")}</div>';">`;
+      }
+
+      return `<div class="thumb-placeholder">${escapeHTML(item.category)}<br>${escapeHTML(item.platform || "Ratonven Hub")}</div>`;
+    }
+
+    function isGlobalUpdate(item) {
+      return item.source_type.toLowerCase() === "global update"
+        || ["medium", "substack", "mirror", "paragraph", "dev.to", "hackernoon", "x", "linkedin", "reddit"].includes(item.platform.toLowerCase());
+    }
+
+    function isDatabaseIndonesia(item) {
+      return item.platform.toLowerCase() === "blogger"
+        || item.source_type.toLowerCase() === "local database"
+        || item.category.toLowerCase() === "blogger indonesia";
+    }
+
+    function isIncome(item) {
+      const text = searchableText(item);
+      return item.is_income
+        || item.category.toLowerCase() === "web3 income"
+        || item.monetization_type.toLowerCase() === "airdrop"
+        || text.includes("airdrop")
+        || text.includes("testnet")
+        || text.includes("income")
+        || text.includes("developer roadmap");
+    }
+
+    function isAI(item) {
+      const text = searchableText(item);
+      return item.category.toLowerCase() === "ai"
+        || item.sub_category.toLowerCase() === "ai tools"
+        || text.includes("ai tools")
+        || text.includes("artificial intelligence");
+    }
+
+    function isAffiliate(item) {
+      return Boolean(item.affiliate_url)
+        || item.monetization_type.toLowerCase() === "affiliate"
+        || item.category.toLowerCase() === "affiliate";
+    }
+
+    function updateStats() {
+      const items = state.all;
+      els.statTotal.textContent = items.length;
+      els.statFeatured.textContent = items.filter(item => item.is_featured).length;
+      els.statIncome.textContent = items.filter(isIncome).length;
+      els.statAffiliate.textContent = items.filter(isAffiliate).length;
+    }
+
+    function formatCardDate(value) {
+      if (!value) return "Tanggal belum diisi";
+
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+
+      return new Intl.DateTimeFormat("id-ID", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      }).format(date);
+    }
+
+    function isSafeUrl(url) {
+      if (!url) return false;
+
+      try {
+        const parsed = new URL(url, window.location.href);
+        return ["http:", "https:"].includes(parsed.protocol);
+      } catch (_) {
+        return false;
+      }
+    }
+
+    function escapeHTML(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function escapeAttr(value) {
+      return escapeHTML(value).replaceAll("`", "&#096;");
+    }
+  </script>
 </body>
 </html>
